@@ -1,0 +1,87 @@
+%% Before you embark on this quest you should probably read some of:
+%% Deadly sins - http://ctan.mirror.garr.it/mirrors/CTAN/info/l2tabu/english/l2tabuen.pdf
+%% Writing a thesis in LaTeX - http://tug.org/pracjourn/2008-1/mori/mori.pdf
+
+\RequirePackage[l2tabu, orthodox]{nag} % tells you of any bad LaTeX usage
+                                       % must be first thing in class (with the exception of comments)
+
+%% There is one option you should define; oneside or twoside
+%% Use twoside for your viva docs (examiners hate long docs they need to carry around)
+%% and oneside for the final thing you submit to the library.  Note that margins will
+%% change accordingly
+
+\documentclass[twoside]{um}  % custom University of Malta project/dissertation/thesis 
+
+
+%% **************** (Your) Packages (Start) ******************
+
+% \listfiles % uncomment this to know which packages you are using
+              % the list of packages will be in the bottom of the .log file
+
+%% Note that packges may already be loaded from the um (and memoir) classes.
+
+\usepackage{blindtext} %% for some dummy text, remove in your writeup
+
+
+%% ***************** (Your) Packages (End) *******************
+
+
+%% **************** (Your) Data (Start) ******************
+
+\title{Blockchain Approaches\\to Machine Learning}  % use \\ here otherwise you get a justified title
+                                                    % note capitalization of the title (only common 
+                                                    % words in lower case)
+\tagline{some hyped-up tagline}                     % tag line
+\author{Jean-Paul Ebejer}                           % your name
+\supervisor{Dr Supervisor(s)}                       % your supervisor(s) name - no . in Dr
+\department{Department of AI}                       % your department 
+\faculty{Faculty of ICT}                            % your faculty
+\degree{M.Sc.\ Big-Data \& AI}                      % the degree you are reading
+\doctype{dissertation}                              % when did you submit
+\degreedate{June, 2018}                             % when did you submit
+
+%% ***************** (Your) Data (End) *******************
+
+
+%% ******** (Your) Document Settings (Start) *************
+% \graphicspath{{./images/}}   % Paths where to look for images, if defined "images" must always be there
+
+%% ********* (Your) Document Settings (End) **************
+
+% end the preamble and start the document
+\begin{document}
+
+\frontmatter 
+    \maketitle
+    \input{frontmatter/originality}    
+    \input{frontmatter/dedication}        % include a dedication.tex file
+    \input{frontmatter/acknowledgements}   % include an acknowledgements.tex file
+    \input{frontmatter/abstract}\if@openright\cleardoublepage\else\clearpage\fi
+    \tableofcontents*\if@openright\cleardoublepage\else\clearpage\fi
+    \listoffigures*\if@openright\cleardoublepage\else\clearpage\fi
+    \listoftables*\if@openright\cleardoublepage\else\clearpage\fi
+
+
+%% Note: always use \input as you cannot nest \includes (amongst other things)
+
+\mainmatter 
+    \input{chap1/introduction_main} 
+    \input{chap2/background_and_lit_overview_main}
+    \input{chap3/materials_and_methods_main}
+    \input{chap4/results_and_discussion_main}
+    \input{chap5/evaluation_main}
+    \input{chap6/conclusions_main}
+    \appendix
+        \input{appA/appendix_a_main}     % these are just test names as I didn't know what you'd want
+        \input{appB/appendix_b_main}    
+
+
+\backmatter
+    % Bibliography
+    \if@openright\cleardoublepage\else\clearpage\fi
+    \bibliographystyle{plainnat}
+    {\footnotesize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
+
+\end{document}
+
+%%% The End %%%
