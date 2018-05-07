@@ -6,7 +6,7 @@ A modern, highly configurable assignment/project/fyp/dissertation/thesis templat
 
 This template was clearly needed, as I keep correcting/examining poorly and inconsistently formatted dissertations all the time.  Updates to the template with examples (2-page landscape table anyone?) are greatly appreciated -- either through pull requestsi, github issues or emails (jean.p.ebejer@um.edu.mt). 
 
-The main file is `dissertation_main.tex`, and this will show you how to organise your dissertation.  Basically replace all `\blindtext` commands with your content and you are then.  More easily said than done of course.
+The main file is `dissertation_main.tex`, and this will show you how to organise your dissertation.  Basically replace all `\blindtext` commands with your content and you are.  This is obviously a case of something more easily said than done.
 
 I am also keen on keeping an FAQ with the most common LaTeX problems, which you are bound to face on the night before your submission deadline.
 
