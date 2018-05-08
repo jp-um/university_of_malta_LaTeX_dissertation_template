@@ -22,4 +22,18 @@ Bet you didn't know this one bit of academic trivia!  (Note: The answer is speci
 
 Well, first of all, **you moron**.  Secondly, by default the template uses two-sided printing settings (margins, recto openings for chapters, table of contents,  etc.).  If you want to change that, simply pass `oneside` as an option to the document class (as opposed to `twoside`).  I suggest you use double-sided layout and printing when you print the examiner's copy (we hate carrying thick manuscripts around) and single sided when you've handed in your corrections, and given out your final copies (to the library, to your supervisors, etc.).
 
+### But how do I use (build) this?
 
+Well, this is the sort of thing your supervisor would expect you to find out on your own.  However, you can either use a GUI like TexMaker (this is what I use) or TexStudio (what everyone else seems to use).  Or if you are so inclined, to build your document from the command line (in the directory where `dissertation_main.tex` resides):
+
+```
+latexmk -pdf
+```
+
+This generates a lot of clutter, but it is important to go through it as some warnings can give you valuable insight on stuff to fix for a perfect presentation. To clean all the LaTeX generated files:
+
+```
+latexmk -c
+```
+
+Note that this will leave the generated file, as is desirable most of the cases.
