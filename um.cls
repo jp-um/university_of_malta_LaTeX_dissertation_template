@@ -32,7 +32,7 @@
 \RequirePackage{eso-pic}                 % required to place huge uni logo at the back - on title page
 \RequirePackage[pdftex]{graphicx}    % For pictures
 \RequirePackage{amssymb}             % at least, for black squares in bullet list
-\RequirePackage{hyperref}            % for hyperreferences
+\RequirePackage[pdfusetitle]{hyperref}            % for hyperreferences
 \RequirePackage[authoryear,semicolon,square,sort]{natbib}     % for [Ebejer, 2012; Alba, 2013] kind of references
 
 %% ****************** Packages (End) *********************
@@ -64,6 +64,15 @@
 
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}} % to set array stretch within tables
 
+\hypersetup{%
+    colorlinks=false,
+%    linkcolor=UMRed,
+%    citecolor=UMRed,
+%    urlcolor=UMRed,
+%    filecolor=magenta, 
+    pdfborder={0 0 0},    
+}
+
 %% ************* Document Options (End) ******************
 
 
@@ -86,19 +95,13 @@
 \def\department#1{\gdef\@department{#1}}
 % The name of your faculty
 \def\faculty#1{\gdef\@faculty{#1}}
+% The name of your faculty
+\def\subjectcode#1{\gdef\@subjectcode{#1}}
 % The tagline
 \def\tagline#1{\gdef\@tagline{#1}}
 % The document type, e.g. a dissertation or a thesis
 \def\doctype#1{\gdef\@doctype{#1}}
 
-
-\hypersetup{
-    colorlinks=false,
-%    linkcolor=UMRed,
-%    citecolor=UMRed,
-%    urlcolor=UMRed,
-    pdfborder={0 0 0},
-}
 %% ************* UM Definitions (End) ******************
 
 
