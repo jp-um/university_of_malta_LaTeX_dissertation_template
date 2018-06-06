@@ -35,6 +35,8 @@
 \RequirePackage[pdfusetitle]{hyperref}            % for hyperreferences
 \RequirePackage[authoryear,semicolon,square,sort]{natbib}     % for [Ebejer, 2012; Alba, 2013] kind of references
 
+\usepackage[printonlyused,withpage]{acronym}
+
 %% ****************** Packages (End) *********************
 
 
@@ -72,6 +74,11 @@
 %    filecolor=magenta, 
     pdfborder={0 0 0},    
 }
+
+\feetbelowfloat % we want the footnotes below floats, not wierdly above
+
+\setsecnumdepth{subsection}  % three level depth - chapter, section, subsection
+\settocdepth{subsection}
 
 %% ************* Document Options (End) ******************
 

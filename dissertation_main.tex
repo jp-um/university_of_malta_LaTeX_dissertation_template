@@ -57,11 +57,14 @@
     \input{frontmatter/originality}    
     \input{frontmatter/dedication}        % include a dedication.tex file
     \input{frontmatter/acknowledgements}   % include an acknowledgements.tex file
+    
+    
+    
     \input{frontmatter/abstract}\if@openright\cleardoublepage\else\clearpage\fi
     \tableofcontents*\if@openright\cleardoublepage\else\clearpage\fi
     \listoffigures*\if@openright\cleardoublepage\else\clearpage\fi
     \listoftables*\if@openright\cleardoublepage\else\clearpage\fi
-
+    \input{frontmatter/abbreviations}\if@openright\cleardoublepage\else\clearpage\fi
 
 %% Note: always use \input as you cannot nest \includes (amongst other things)
 
@@ -75,12 +78,13 @@
     \appendix
         \input{appA/appendix_a_main}     % these are just test names as I didn't know what you'd want
         \input{appB/appendix_b_main}    
+        \input{appC/appendix_c_main}            
 
 
 \backmatter
     % Bibliography
     \if@openright\cleardoublepage\else\clearpage\fi
-    \bibliographystyle{plainnat}
+    \bibliographystyle{um-plainnat} %% specific plainnat does not show url for articles
     {\footnotesize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
 
 \end{document}

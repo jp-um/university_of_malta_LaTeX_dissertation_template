@@ -32,7 +32,7 @@ A beautiful table is shown in Table~\ref{tab:sometable}, data from \citet{Ebejer
 \begin{figure}[ht!] % supposedly places it here ...
   \centering
   \includegraphics[width=0.6\linewidth]{test_image_goku}
-  \caption{A test figure.}
+  \caption[This is the short caption for List of Figures]{A test figure.  This caption is huge, but in the list of figures only the smaller version in the square brackets will appear.}
   \label{fig:test1}
 \end{figure}
 
@@ -47,13 +47,18 @@ A test figure is shown in Figure~\ref{fig:test1}.
     \centering
     \subbottom[Goku]{\includegraphics[width=0.3\textwidth]{test_image_goku}}\qquad
     \subbottom[More Goku]{\includegraphics[width=0.3\textwidth]{test_image_goku}}%
-    \caption{The same super saiyan. Two times.}        
+    \caption[Short Caption]{The same super saiyan. Two times.}        
     \label{fig:test2}
 \end{figure}
 
-
-
 Two figures shown side by side are shown in Figure~\ref{fig:test2}.  Note the use of the \textit{subfig} package (\textit{subfigure} is outdated).
+
+\subsection{Showing the Use of Acronyms}
+
+In the early nineties, \acs{GSM} was deployed in many European countries. \ac{GSM} offered for the first time international roaming for mobile subscribers. The \acs{GSM}’s use of \ac{TDMA} as its communication standard was debated at length. And every now and then there are big discussion whether \ac{CDMA} should have been chosen over \ac{TDMA}.
+
+If you want to know more about \acf{GSM}, \acf{TDMA}, \acf{CDMA} and other acronyms, just read a book about mobile communication. Just to mention it: There is another \ac{UA}, for testing.
+
 
 \section{Document Structure}
 
