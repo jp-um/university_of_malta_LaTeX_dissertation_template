@@ -2,7 +2,10 @@
 
 Let us not waste any time, you have a project to write up!  [Here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/dissertation_main.pdf) is a complete example of what this LaTeX template looks like.  Or quicker...
 
-![alt-text-1](images/pg1.png "cover page" =250x) ![alt-text-2](images/pg2.png "some text" =250x)
+![Image of Yaktocat](images/pg1.png)
+
+
+![alt-text-1]( "cover page" =250x) ![alt-text-2](images/pg2.png "some text" =250x)
 
 Now back to the boring bits ...
 
