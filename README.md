@@ -4,6 +4,8 @@ Let us not waste any time, you have a project to write up!  [Here](https://githu
 
 ![Image of Yaktocat](images/pg1.png | width="100")
 
+<img src="images/pg1.png" width="48">
+
 
 ![alt-text-1]( "cover page" =250x) ![alt-text-2](images/pg2.png "some text" =250x)
 
