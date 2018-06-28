@@ -98,6 +98,8 @@
 \def\degree#1{\gdef\@degree{#1}}
 % The name of your supervisor
 \def\supervisor#1{\gdef\@supervisor{#1}}
+% The name of your co-supervisor
+\def\cosupervisor#1{\gdef\@cosupervisor{#1}}
 % The name of your department (e.g. Computer Science, Statistics, Biochemistry, AI)
 \def\department#1{\gdef\@department{#1}}
 % The name of your faculty
@@ -139,7 +141,8 @@
     {\large\textit{\@tagline}}\\[1in]
     
     {\LARGE\bfseries \textsc{\@author}} \\[1cm]
-    {\large Supervised by \@supervisor} \\[1cm]
+    {\large Supervised by \@supervisor} 
+    \@ifundefined{@cosupervisor}{}{\\[1ex]\large Co-supervised by \@cosupervisor}\\[1cm]
     {\large \@department} \\[1ex]
     {\large \@faculty} \\[1ex]
     {\large University of Malta} \\

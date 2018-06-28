@@ -1,6 +1,10 @@
 # University of Malta -- LaTeX Dissertation Template
 
-Let us not waste any time, you have a project to write up!  This LaTeX template looks like [this](https://github.com/jp-uom/university_of_malta_LaTeX_dissertation_template/blob/master/dissertation_main.pdf).  Now back to the boring bits ...
+Let us not waste any time, you have a project to write up!  [Here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/dissertation_main.pdf) is a complete example of what this LaTeX template looks like.  Or quicker...
+
+![alt-text-1](images/pg1.png "cover page" =250x) ![alt-text-2](images/pg2.png "some text" =250x)
+
+Now back to the boring bits ...
 
 A modern, highly configurable assignment/project/fyp/dissertation/thesis template for the University of Malta.  (In reality, there is nothing specific to the University of Malta, and this LaTeX class may be used anywhere).  This template is loosely based on my D.Phil. Thesis at the University of Oxford, which was loosely based on ...  You get the drift.
 
