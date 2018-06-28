@@ -1,8 +1,9 @@
 # University of Malta -- LaTeX Dissertation Template
 
-Let us not waste any time, you have a project to write up!  [Here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/dissertation_main.pdf) is a complete example (`pdf` format) of what this LaTeX template looks like.  Or quicker...
+Let us not waste any time, you have a project to write up!  [Here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/dissertation_main.pdf) is a complete example (PDF format) of what this LaTeX template looks like.  Or quicker...
 
-<img src="images/pg1.png" width="200"><img src="images/pg2.png" width="200"><img src="images/pg3.png" width="200"><img src="images/pg4.png" width="200">
+<img src="images/pg1.png" width="400"><img src="images/pg2.png" width="400">
+<img src="images/pg3.png" width="400"><img src="images/pg4.png" width="400">
 
 Now back to the boring bits ...
 
