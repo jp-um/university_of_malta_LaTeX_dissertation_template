@@ -80,6 +80,9 @@
 \setsecnumdepth{subsection}  % three level depth - chapter, section, subsection
 \settocdepth{subsection}
 
+\renewcommand*{\cftappendixname}{Appendix\space}
+
+
 %% ************* Document Options (End) ******************
 
 

@@ -1,3 +1,12 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% The updated version of this document should be downloaded from
+%%      https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template
+%%
+%% In case of any difficulties please contact Dr JP Ebejer on jean.p.ebejer@um.edu.mt
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %% Before you embark on this quest you should probably read some of:
 %% Deadly sins - http://ctan.mirror.garr.it/mirrors/CTAN/info/l2tabu/english/l2tabuen.pdf
 %% Writing a thesis in LaTeX - http://tug.org/pracjourn/2008-1/mori/mori.pdf
@@ -78,14 +87,15 @@
     \appendix
         \input{appA/appendix_a_main}     % these are just test names as I didn't know what you'd want
         \input{appB/appendix_b_main}    
-        \input{appC/appendix_c_main}            
+        \input{appC/appendix_c_main} 
 
-
-\backmatter
+{\backmatter
     % Bibliography
     \if@openright\cleardoublepage\else\clearpage\fi
     \bibliographystyle{um-plainnat} %% specific plainnat does not show url for articles
-    {\footnotesize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
+    {\footnotesize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}}
+
+
 
 \end{document}
 
