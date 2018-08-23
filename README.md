@@ -41,7 +41,7 @@ This generates a lot of clutter, but it is important to go through it as some wa
 latexmk -c
 ```
 
-Note that this will leave the generated file, as is desirable most of the cases.
+Note that this will leave the generated `pdf` file, as is desirable most of the cases.
 
 ### Why are there so many blank pages?
 
