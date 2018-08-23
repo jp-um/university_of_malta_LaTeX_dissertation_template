@@ -77,7 +77,7 @@
 
 \feetbelowfloat % we want the footnotes below floats, not wierdly above
 
-\setsecnumdepth{subsection}  % three level depth - chapter, section, subsection
+\setsecnumdepth{subsubsection}  % three level depth - chapter, section, subsection, subsubsection
 \settocdepth{subsection}
 
 \renewcommand*{\cftappendixname}{Appendix\space}
