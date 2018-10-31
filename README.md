@@ -34,7 +34,7 @@ You must, not should!  You should view any written submission as a training oppo
 
 ### But how do I use (build) this?
 
-Well, this is the sort of thing your supervisor would expect you to find out on your own.  However, you can either use a GUI like ~~TexMaker (this is what I use) or ~~TexStudio.  Or if you are so inclined, to build your document from the command line (in the directory where `dissertation_main.tex` resides):
+Well, this is the sort of thing your supervisor would expect you to find out on your own.  However, you can either use a GUI like ~~TexMaker (this is what I use) or~~ TexStudio.  Or if you are so inclined, to build your document from the command line (in the directory where `dissertation_main.tex` resides):
 
 ```
 latexmk -pdf
