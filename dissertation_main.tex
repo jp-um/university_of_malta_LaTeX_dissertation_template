@@ -63,7 +63,6 @@
 
 % end the preamble and start the document
 \begin{document}
-
 \frontmatter 
     \maketitle
     \input{frontmatter/originality}    
@@ -76,7 +75,7 @@
     \input{frontmatter/abbreviations}\if@openright\cleardoublepage\else\clearpage\fi
 
 %% Note: always use \input as you cannot nest \includes (amongst other things)
-
+\pagestyle{umpage}
 \mainmatter 
     \input{chap1/introduction_main} 
     \input{chap2/background_and_lit_overview_main}

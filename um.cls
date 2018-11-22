@@ -45,6 +45,16 @@
 
 \OnehalfSpacing                                  % One and a half line spacing
 
+\setlength{\headsep}{1.5cm}                      % Add space between the header and text
+
+\nouppercaseheads								 % Don't convert titles to Uppercase
+\makepagestyle{umpage}							 % UM pagestyle, put at bottom
+\makeevenhead{umpage}{\sffamily\footnotesize\leftmark}{}{\sffamily\footnotesize\rightmark}
+\makeoddhead{umpage}{\sffamily\footnotesize\rightmark}{}{\sffamily\footnotesize\leftmark}
+\makeevenfoot{umpage}{}{\thepage}{}
+\makeoddfoot{umpage}{}{\thepage}{}
+\makeheadrule{umpage}{\textwidth}{0.2pt}
+
 \setlrmarginsandblock{3.7cm}{2.5cm}{*}           % Set the page margins (for one and two sided docs) 
 \checkandfixthelayout                            % Put layout into effect
 
