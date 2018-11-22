@@ -23,13 +23,18 @@ I am also keen on keeping an FAQ with the most common LaTeX problems, which you 
 
 Bet you didn't know this one bit of academic trivia!  (Note: The answer is specific to the University of Malta, answer given by our dear registrar, Ms Veronica Grech).
 
-### I am a foe of the environment, and don't want to double side print -- how do I fix this?
+### May I use this template for my assignment?  What changes do I need?
 
-Well, first of all, **you moron**.  Secondly, by default the template uses two-sided printing settings (margins, recto openings for chapters, table of contents,  etc.).  If you want to change that, simply pass `oneside` as an option to the document class (as opposed to `twoside`).  I suggest you use double-sided layout and printing when you print the examiner's copy (we hate carrying thick manuscripts around) and single sided when you've handed in your corrections, and given out your final copies (to the library, to your supervisors, etc.).
+You must, not should!  You should view any written submission as a training opportunity for your final dissertation.  Getting familiar with the template will help you out later in the course.  Of course, some (very) minor changes to the template are required; as follows:
+
+- From `dissertation_main.tex` comment out (`%`) frontmatter sections for originality, dedication, acknowledgements, and abstract (these would look silly in an assignment).  
+- Also, from the same file `dissertation_main.tex` comment out all the appendix material (unless you actually have an appendix; unlikely)
+
+(Let me know if any more changes are required)
 
 ### But how do I use (build) this?
 
-Well, this is the sort of thing your supervisor would expect you to find out on your own.  However, you can either use a GUI like TexMaker (this is what I use) or TexStudio (what everyone else seems to use).  Or if you are so inclined, to build your document from the command line (in the directory where `dissertation_main.tex` resides):
+Well, this is the sort of thing your supervisor would expect you to find out on your own.  However, you can either use a GUI like ~~TexMaker (this is what I use) or~~ TexStudio.  Or if you are so inclined, to build your document from the command line (in the directory where `dissertation_main.tex` resides):
 
 ```
 latexmk -pdf
@@ -42,6 +47,10 @@ latexmk -c
 ```
 
 Note that this will leave the generated `pdf` file, as is desirable most of the cases.
+
+### I am a foe of the environment, and don't want to double side print -- how do I fix this?
+
+Well, first of all, **you moron**.  Secondly, by default the template uses two-sided printing settings (margins, recto openings for chapters, table of contents,  etc.).  If you want to change that, simply pass `oneside` as an option to the document class (as opposed to `twoside`).  I suggest you use double-sided layout and printing when you print the examiner's copy (we hate carrying thick manuscripts around) and single sided when you've handed in your corrections, and given out your final copies (to the library, to your supervisors, etc.).
 
 ### Why are there so many blank pages?
 
