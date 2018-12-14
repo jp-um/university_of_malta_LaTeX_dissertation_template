@@ -13,12 +13,12 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01 v1.1 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2018/12/14 v1.1.6 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
 \ProcessOptions\relax
-\LoadClass[12pt,a4paper,final]{memoir}
+\LoadClass[11pt,a4paper,final]{memoir}
 
 
 
@@ -49,8 +49,8 @@
 
 \nouppercaseheads								 % Don't convert titles to Uppercase
 \makepagestyle{umpage}							 % UM pagestyle, put at bottom
-\makeevenhead{umpage}{\sffamily\footnotesize\leftmark}{}{\sffamily\footnotesize\rightmark}
-\makeoddhead{umpage}{\sffamily\footnotesize\rightmark}{}{\sffamily\footnotesize\leftmark}
+\makeevenhead{umpage}{\sffamily\small\leftmark}{}{\sffamily\small\rightmark}
+\makeoddhead{umpage}{\sffamily\small\rightmark}{}{\sffamily\small\leftmark}
 \makeevenfoot{umpage}{}{\thepage}{}
 \makeoddfoot{umpage}{}{\thepage}{}
 \makeheadrule{umpage}{\textwidth}{0.2pt}
