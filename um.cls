@@ -35,6 +35,7 @@
 \RequirePackage[pdfusetitle]{hyperref}            % for hyperreferences
 \RequirePackage[authoryear,semicolon,square,sort]{natbib}     % for [Ebejer, 2012; Alba, 2013] kind of references
 
+\usepackage[defaultsans]{lato}
 \usepackage[printonlyused,withpage]{acronym}
 
 %% ****************** Packages (End) *********************
