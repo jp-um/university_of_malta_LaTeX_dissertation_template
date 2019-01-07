@@ -49,12 +49,18 @@
 \setlength{\headsep}{1.5cm}                      % Add space between the header and text
 
 \nouppercaseheads								 % Don't convert titles to Uppercase
-\makepagestyle{umpage}							 % UM pagestyle, put at bottom
+\makepagestyle{umpage}
+
+												 % This travesty is due to a bug in memoir, see https://tex.stackexchange.com/questions/468922/oneside-in-memoir-causing-header-trouble
 \makeevenhead{umpage}{\sffamily\small\leftmark}{}{\sffamily\small\rightmark}
-\makeoddhead{umpage}{\sffamily\small\rightmark}{}{\sffamily\small\leftmark}
-\makeevenfoot{umpage}{}{\thepage}{}
+\makeoddhead{umpage}{\sffamily\small\leftmark}{}{\sffamily\small\rightmark}
+\makeevenfoot{umpage}{}{\thepage}{}  			 % UM pagestyle, put page at bottom
 \makeoddfoot{umpage}{}{\thepage}{}
 \makeheadrule{umpage}{\textwidth}{0.2pt}
+\makepsmarks{umpage}{%
+	\createmark{chapter}{left}{shownumber}{\@chapapp\ }{. \ }
+	\createmark{section}{right}{shownumber}{}{. \ }
+}
 
 \setlrmarginsandblock{3.7cm}{2.5cm}{*}           % Set the page margins (for one and two sided docs) 
 \checkandfixthelayout                            % Put layout into effect
