@@ -28,9 +28,10 @@
               % the list of packages will be in the bottom of the .log file
 
 %% Note that packges may already be loaded from the um (and memoir) classes.
+%% Do not add your packages to the template, but rather add them here.
 
 \usepackage{blindtext} %% for some dummy text, remove in your writeup
-
+\usepackage{coffee4}    %% for some fun
 
 %% ***************** (Your) Packages (End) *******************
 
@@ -94,7 +95,6 @@
     \if@openright\cleardoublepage\else\clearpage\fi
     \bibliographystyle{um-plainnat} %% specific plainnat does not show url for articles
     {\footnotesize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}}
-
 
 
 \end{document}
