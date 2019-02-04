@@ -62,6 +62,8 @@
 
 %% ********* (Your) Document Settings (End) **************
 
+\makeindex
+
 % end the preamble and start the document
 
 \begin{document}
@@ -94,7 +96,9 @@
     % Bibliography
     \if@openright\cleardoublepage\else\clearpage\fi
     \bibliographystyle{um-plainnat} %% specific plainnat does not show url for articles
-    {\footnotesize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}}
+    {\footnotesize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
+	\printindex
+}
 
 
 \end{document}
