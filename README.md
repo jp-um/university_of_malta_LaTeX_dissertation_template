@@ -1,6 +1,6 @@
 # Preamble
 
-Before embarking on this journey, I suggest you read [my LaTeX tips](https://bitsilla.com/blog/2019/01/latex-tips-for-your-dissertation-or-project-write-up/)<a href="" target="_blank">.
+Before embarking on this journey, I suggest you read [my LaTeX tips](https://bitsilla.com/blog/2019/01/latex-tips-for-your-dissertation-or-project-write-up/).
 
 # University of Malta -- LaTeX Dissertation Template
 
