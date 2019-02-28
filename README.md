@@ -63,3 +63,7 @@ First, blank pages are only generated with the `twopage` option.  This is becaus
 ### My supervisor(s) says section X should be named Y.  What should I do?
 
 It is always counter-productive to **not** listen to your supervisor.  This is a generic template, and your specific use-case may have different requirements.  For example, in some departments it is common to have a "Methodology" section instead of the (more experimental) "Materials & Methods".  Elsewhere, the "Evaluation" section is sometimes merged in the "Results and Discussion" chapter.  Some faculties require a standard cover page.  This template is very flexible, and any changes are easy/trivial to make.  The important thing is to use good judgement and that **you follow your supervisor's advice**.
+
+### For references, which is better [42] or [Ebejer et al., 2016]?
+
+Many computational scientists are used to the IEEE referencing style with numbers, i.e. `[42]`.  But there is a reason why `plannat` is superior.  Your examiners (and supervisors) will be well aquainted with the research area and will know which are the main papers you should have read (and cited).  If you use the numbered referencing, the examiner has to keep cross-referencing the *References* section.  This is not the case when using the name of the author and year directly in the citation.  Moreover, it is easier for the examiner to realize when you are mis-citing an author.  Modern typsetting is moving in this direction.
