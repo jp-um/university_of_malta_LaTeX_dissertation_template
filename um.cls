@@ -112,7 +112,7 @@
 \definecolor{UMRed}{rgb}{0.73,0.09,0.19}   % UM Logo Color
 
 % Setup choosen University of Malta crest/logo
-\def\logo{{\includegraphics[width=32mm]{umlogo_red}}}
+\def\logo{{\includegraphics[width=32mm]{umlogo_crest_red}}}
 
 % The year and term the thesis is submitted 
 \def\degreedate#1{\gdef\@degreedate{#1}}
@@ -149,7 +149,7 @@
 % The front page
 \renewcommand{\maketitle}
 {\begingroup
-\AlCentroPagina{umlogo_gray}
+\AlCentroPagina{umlogo_crest_gray}
 \parbox[b][0.95\textheight][t]{0.2\textwidth}{\raggedleft\logo}
 \hspace*{2ex}
 \textcolor{UMRed}{\rule{2pt}{0.95\textheight}}
@@ -232,6 +232,31 @@
 \end{center}
 \if@openright\cleardoublepage\else\clearpage\fi}
 
+
+% COPYRIGHT
+%
+% The originality environment puts a large, bold, centered 
+% "Statement of originality" label at the top of the page. The statement 
+% of originality itself appears in a quote environment, i.e. tabbed in at 
+% both sides, and on its own page.
+
+\newenvironment{copyrightenv}
+{\clearpage
+	~\vfill
+	\thispagestyle{empty}
+	
+	\begin{figure}[h]
+		\includegraphics[width=2.5in]{umlogo_full_red}
+	\end{figure}
+	
+	\noindent Copyright \textcopyright\the\year\ University of Malta\\ % Copyright notice
+	
+	\noindent \textsc{www.um.edu.mt}\\ % URL
+	
+	\noindent \textit{First edition, \today} % Printing/edition date
+	
+	%% \noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
+	\if@openright\cleardoublepage\else\clearpage\fi}
 
 
 %% **************** Environments (End) *******************

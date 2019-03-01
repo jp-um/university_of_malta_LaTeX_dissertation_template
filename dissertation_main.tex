@@ -51,14 +51,17 @@
 \degree{M.Sc.\ Your Degree}                         % the degree you are reading
                                                     % note the \ after the dot, so not to consider it a fullstop
 \doctype{dissertation}                              % the type of document (fyp, dissertation, thesis)
-\degreedate{September, 2018}                        % when did you submit
+\degreedate{June, 2019}                        % when did you submit -- officially after your corrections !
 %%\subjectcode{ICS5200}                               % the study unit-code (currently not used)
 
 %% ***************** (Your) Data (End) *******************
 
 
 %% ******** (Your) Document Settings (Start) *************
-% \graphicspath{{./images/}}   % Paths where to look for images, if defined "images" must always be there
+
+% You should have an images directory in every chapX subdir
+% NOTE:  Trailing / for subdirs is required.
+\graphicspath{{./images/}{./chap1/images/}}   % Paths where to look for images, if defined "images" must always be there as it holds the images in-use by the template.
 
 \makeindex
 
@@ -71,6 +74,7 @@
 \begin{document}
 \frontmatter 
     \maketitle
+    \input{frontmatter/copyright}       
     \input{frontmatter/originality}    
     \input{frontmatter/dedication}        % include a dedication.tex file
     \input{frontmatter/acknowledgements}   % include an acknowledgements.tex file
@@ -101,7 +105,6 @@
     {\footnotesize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
 	\printindex
 }
-
 
 \end{document}
 
