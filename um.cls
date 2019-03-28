@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2018/12/14 v1.1.6 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2019/03/25 v1.2.1 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
@@ -33,7 +33,7 @@
 \RequirePackage[pdftex]{graphicx}    % For pictures
 \RequirePackage{amssymb}             % at least, for black squares in bullet list
 \RequirePackage[pdfusetitle]{hyperref}            % for hyperreferences
-\RequirePackage[authoryear,semicolon,square,sort]{natbib}     % for [Ebejer, 2012; Alba, 2013] kind of references
+\RequirePackage[authoryear,semicolon,sort]{natbib}     % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
 
 \usepackage[defaultsans]{lato}
 \usepackage[printonlyused,withpage]{acronym}
@@ -42,6 +42,34 @@
 
 %% ****************** Packages (End) *********************
 
+%% ************ UM Definitions (Start) *****************
+
+\definecolor{OxfordBlue}{rgb}{0,0.106,0.329}   % Color
+\definecolor{UMRed}{rgb}{0.73,0.09,0.19}   % UM Logo Color
+
+% Setup choosen University of Malta crest/logo
+\def\logo{{\includegraphics[width=30mm]{umlogo_crest_red}}}
+
+% The year and term the thesis is submitted 
+\def\degreedate#1{\gdef\@degreedate{#1}}
+% The full (unabbreviated) name of the degree
+\def\degree#1{\gdef\@degree{#1}}
+% The name of your supervisor
+\def\supervisor#1{\gdef\@supervisor{#1}}
+% The name of your co-supervisor
+\def\cosupervisor#1{\gdef\@cosupervisor{#1}}
+% The name of your department (e.g. Computer Science, Statistics, Biochemistry, AI)
+\def\department#1{\gdef\@department{#1}}
+% The name of your faculty
+\def\faculty#1{\gdef\@faculty{#1}}
+% The name of your faculty
+\def\subjectcode#1{\gdef\@subjectcode{#1}}
+% The tagline
+\def\tagline#1{\gdef\@tagline{#1}}
+% The document type, e.g. a dissertation or a thesis
+\def\doctype#1{\gdef\@doctype{#1}}
+
+%% ************* UM Definitions (End) ******************
 
 
 %% ************ Document Options (Start) *****************
@@ -54,15 +82,17 @@
 \makepagestyle{umpage}
 
 												 % This travesty is due to a bug in memoir, see https://tex.stackexchange.com/questions/468922/oneside-in-memoir-causing-header-trouble
-\makeevenhead{umpage}{\sffamily\small\leftmark}{}{\sffamily\small\rightmark}
-\makeoddhead{umpage}{\sffamily\small\leftmark}{}{\sffamily\small\rightmark}
+\makeevenhead{umpage}{\color{gray}\sffamily\small\leftmark}{}{\color{gray}\sffamily\small\rightmark}
+\makeoddhead{umpage}{\color{gray}\sffamily\small\leftmark}{}{\color{gray}\sffamily\small\rightmark}
 \makeevenfoot{umpage}{}{\thepage}{}  			 % UM pagestyle, put page at bottom
 \makeoddfoot{umpage}{}{\thepage}{}
-\makeheadrule{umpage}{\textwidth}{0.2pt}
+\makeheadfootruleprefix{umpage}{\color{gray}}{}
+\makeheadrule{umpage}{\textwidth}{\normalrulethickness}
 \makepsmarks{umpage}{%
 	\createmark{chapter}{left}{shownumber}{\@chapapp\ }{. \ }
 	\createmark{section}{right}{shownumber}{}{. \ }
 }
+
 
 \setlrmarginsandblock{3.7cm}{2.5cm}{*}           % Set the page margins (for one and two sided docs) 
 \checkandfixthelayout                            % Put layout into effect
@@ -70,14 +100,18 @@
 \graphicspath{{./images/}}                       % Where to look for images (paths) ...
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg} % Graphics extensions to load
 
-\chapterstyle{ell} % how to draw the different chapters
+\chapterstyle{ell} % how to draw the different chapter headings
 
-\renewcommand*{\chapnumfont}{\normalfont\HUGE\bfseries}  % Chapter titles should be normal
-\renewcommand*{\chaptitlefont}{\normalfont\HUGE\bfseries}
+\renewcommand*{\chapnumfont}{\sffamily\HUGE\bfseries\color{UMRed}}  % Chapter titles should be normal
+\renewcommand*{\chaptitlefont}{\sffamily\HUGE\bfseries\color{UMRed}}
+\setsecheadstyle{\sffamily\LARGE\bfseries\color{UMRed}}% Set \section style
+\setsubsecheadstyle{\sffamily\Large\color{UMRed}}% Set \subsection style
+\setsubsubsecheadstyle{\sffamily\large\color{UMRed}}% Set \subsection style
+\setsecnumformat{\csname the#1\endcsname\enskip{\color{gray}\textbar}\enskip}
 
 \newsubfloat{figure} % declares a new subfloat element which allows to use \subbottom commands
 
-\renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
+\renewcommand{\labelitemi}{\color{UMRed}\scriptsize$\blacksquare$}
 
 \addto{\captionsenglish}{\renewcommand{\bibname}{References}} % because we are using babel we need this
                                                               % instead of just redefining bibname
@@ -106,34 +140,6 @@
 
 
 
-%% ************ UM Definitions (Start) *****************
-
-\definecolor{OxfordBlue}{rgb}{0,0.106,0.329}   % Color
-\definecolor{UMRed}{rgb}{0.73,0.09,0.19}   % UM Logo Color
-
-% Setup choosen University of Malta crest/logo
-\def\logo{{\includegraphics[width=32mm]{umlogo_crest_red}}}
-
-% The year and term the thesis is submitted 
-\def\degreedate#1{\gdef\@degreedate{#1}}
-% The full (unabbreviated) name of the degree
-\def\degree#1{\gdef\@degree{#1}}
-% The name of your supervisor
-\def\supervisor#1{\gdef\@supervisor{#1}}
-% The name of your co-supervisor
-\def\cosupervisor#1{\gdef\@cosupervisor{#1}}
-% The name of your department (e.g. Computer Science, Statistics, Biochemistry, AI)
-\def\department#1{\gdef\@department{#1}}
-% The name of your faculty
-\def\faculty#1{\gdef\@faculty{#1}}
-% The name of your faculty
-\def\subjectcode#1{\gdef\@subjectcode{#1}}
-% The tagline
-\def\tagline#1{\gdef\@tagline{#1}}
-% The document type, e.g. a dissertation or a thesis
-\def\doctype#1{\gdef\@doctype{#1}}
-
-%% ************* UM Definitions (End) ******************
 
 
 
@@ -144,34 +150,33 @@
 % taken from http://tug.org/pracjourn/2008-1/mori/mori.pdf
 \newcommand\AlCentroPagina[1]{%
 \AddToShipoutPicture*{\AtPageCenter{%
-\makebox(0,0){\includegraphics[width=0.7\paperwidth]{#1}}}}}
+\makebox(0,-50){\includegraphics[width=0.5\paperwidth]{#1}}}}}
 
 % The front page
 \renewcommand{\maketitle}
 {\begingroup
 \AlCentroPagina{umlogo_crest_gray}
-\parbox[b][0.95\textheight][t]{0.2\textwidth}{\raggedleft\logo}
+\parbox[b][0.95\textheight][t]{0.2\textwidth}{\raggedleft\logo} %% this 0.95 is important, otherwise page overflows in next page
 \hspace*{2ex}
 \textcolor{UMRed}{\rule{2pt}{0.95\textheight}}
 \hspace*{2ex}
-\parbox[b][0.95\textheight][t]{0.7\textwidth}{
+\parbox[b][0.95\textheight][t]{0.8\textwidth}{
     \setlength{\parindent}{0pt}
-    \fontfamily{pag}\selectfont
-    {\Huge\bfseries{\begin{Spacing}{1.1}\fontfamily{ppl}\selectfont\textcolor{UMRed}{\@title}\end{Spacing}}
-    }
+    %%\fontfamily{pag}\selectfont
+    \sffamily
+    {\Huge\bfseries{\begin{Spacing}{1.15}\textcolor{UMRed}{\@title}\end{Spacing}}}
     \vspace*{2ex}
     {\large\textit{\@tagline}}\\[1in]
     
     {\LARGE\bfseries \textsc{\@author}} \\[1cm]
     {\large Supervised by \@supervisor} 
-    \@ifundefined{@cosupervisor}{}{\\[1ex]\large Co-supervised by \@cosupervisor}\\[1cm]
+    \@ifundefined{@cosupervisor}{\\[2ex]}{\\[2ex]\large Co-supervised by \@cosupervisor}\\[1cm]
     {\large \@department} \\[1ex]
     {\large \@faculty} \\[1ex]
     {\large University of Malta} \\
-    
     \vfill
     {\bfseries \@degreedate}\\[\baselineskip]
-    {\small \textit{A \@doctype\ submitted in partial fulfilment of the requirements for the degree of \@degree}.}
+	\parbox[t]{0.80\linewidth}{\footnotesize\textit{A \@doctype\ submitted in partial fulfilment of the requirements for the degree of \@degree}.}    
 }
 \thispagestyle{empty}
 \if@openright\cleardoublepage\else\clearpage\fi
@@ -179,9 +184,12 @@
 %% *** Title Page (End) ***
 
 \newenvironment{acknowledgements}
-{\renewcommand{\abstractname}{Acknowledgements}\abstract}
+{\renewcommand{\abstractname}{\Large\bfseries\sffamily\textcolor{UMRed}{Acknowledgements}}\abstract}
 {\endabstract\if@openright\cleardoublepage\else\clearpage\fi}
        
+\addto{\captionsenglish}{\renewcommand{\abstractname}{\Large\bfseries\sffamily\textcolor{UMRed}{Abstract}}}
+
+
 \newenvironment{dedication}
   {\clearpage           % we want a new page
    \thispagestyle{empty}% no header and footer
@@ -219,7 +227,7 @@
 {\clearpage
 \begin{center}
 \vspace*{1.5cm}
-{\large \bfseries \textcolor{UMRed}{Statement of Originality} \par}
+{\Large\bfseries\sffamily\textcolor{UMRed}{Statement of Originality}\par}
 \vspace*{1.5cm}
 {I, the undersigned, declare that this is my own work unless where otherwise acknowledged and referenced. \par}
 \vspace*{1.5cm}
@@ -257,6 +265,5 @@
 	
 	%% \noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
 	\if@openright\cleardoublepage\else\clearpage\fi}
-
 
 %% **************** Environments (End) *******************
