@@ -21,7 +21,6 @@
 \LoadClass[11pt,a4paper,final]{memoir}
 
 
-
 %% **************** Packages (Start) *********************
 
 \RequirePackage[utf8]{inputenc}      % Required for inputting international characters
@@ -38,9 +37,8 @@
 \usepackage[defaultsans]{lato}
 \usepackage[printonlyused,withpage]{acronym}
 
-
-
 %% ****************** Packages (End) *********************
+
 
 %% ************ UM Definitions (Start) *****************
 
