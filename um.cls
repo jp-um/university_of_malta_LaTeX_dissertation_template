@@ -66,6 +66,7 @@
 \def\tagline#1{\gdef\@tagline{#1}}
 % The document type, e.g. a dissertation or a thesis
 \def\doctype#1{\gdef\@doctype{#1}}
+\def\authorID#1{\gdef\@authorID{#1}}
 
 %% ************* UM Definitions (End) ******************
 
@@ -132,7 +133,8 @@
 \settocdepth{subsection}
 
 \renewcommand*{\cftappendixname}{Appendix\space}
-
+\newcommand{\removelinebreaks}[1]{%
+	\begingroup\def\\{ }#1\endgroup}
 
 %% ************* Document Options (End) ******************
 
@@ -221,21 +223,61 @@
 % of originality itself appears in a quote environment, i.e. tabbed in at 
 % both sides, and on its own page.
 
+%\newenvironment{originality}
+%{\clearpage
+%\begin{center}
+%\vspace*{1.5cm}
+%{\Large\bfseries\sffamily\textcolor{UMRed}{Statement of Originality}\par}
+%\vspace*{1.5cm}
+%{I, the undersigned, declare that this is my own work unless where otherwise acknowledged and referenced. \par}
+%\vspace*{1.5cm}
+%\renewcommand\arraystretch{1.5}
+%\begin{tabular}{ll}
+%      {\bfseries Candidate} & \@author \\[15mm]
+%      {\bfseries Signed} & \makebox[1.5in]{\hrulefill} \\
+%      {\bfseries Date} & \today \\
+%\end{tabular}
+%\end{center}
+%\if@openright\cleardoublepage\else\clearpage\fi}
+
+%% This was updated to the official Statement of Originality (Authentication form)
+
 \newenvironment{originality}
-{\clearpage
-\begin{center}
-\vspace*{1.5cm}
-{\Large\bfseries\sffamily\textcolor{UMRed}{Statement of Originality}\par}
-\vspace*{1.5cm}
-{I, the undersigned, declare that this is my own work unless where otherwise acknowledged and referenced. \par}
-\vspace*{1.5cm}
-\renewcommand\arraystretch{1.5}
+{\clearpage\thispagestyle{empty}
+\begin{figure}[h]
+	\includegraphics[width=2.5in]{umlogo_full_red}
+\end{figure}
+\vspace{3mm}
+{\noindent\Large\bfseries\sffamily\textcolor{UMRed}{Declaration by Postgraduate Students}}\\ %% FIXME this will have to change if not postgraduate ...
+
+{\setlength{\parindent}{0em}
+	
+\textbf{(a) Authenticity of Dissertation}\\
+
+\noindent I hereby declare that I am the legitimate author of this Dissertation and that it is my original work.
+
+No portion of this work has been submitted in support of an application for another degree or qualification of this or any other university or institution of higher education.
+
+I hold the University of Malta harmless against any third party claims with regard to copyright violation, breach of confidentiality, defamation and any other third party right infringement.\\
+
+\textbf{(b) Research Code of Practice and Ethics Review Procedures}\\
+
+I declare that I have abided by the University’s Research Ethics Review Procedures.
+
+As a Master’s student, as per Regulation 58 of the General Regulations for University Postgraduate Awards, I accept that should my dissertation be awarded a Grade A, it will be made publicly available on the University of Malta Institutional Repository.}\\[5mm]
+%%\newcolumntype{L}{>{\arraybackslash}m{2.5in}}
+\bgroup
+\def\arraystretch{1.2}%
 \begin{tabular}{ll}
-      {\bfseries Candidate} & \@author \\[15mm]
-      {\bfseries Signed} & \makebox[1.5in]{\hrulefill} \\
-      {\bfseries Date} & \today \\
-\end{tabular}
-\end{center}
+{\bfseries Faculty/Institute/Centre/School} & \@faculty \\
+{\bfseries Degree} & \@degree \\
+{\bfseries Title}  & \removelinebreaks{\@title} \\	
+{\bfseries Candidate \@ifundefined{@authorID}{}{(Id.)}} & \@author\ \@ifundefined{@authorID}{}{(\@authorID)} \\[0.7in]	
+{\bfseries Signature of Student} & \makebox[2in]{\hrulefill} \\
+{\bfseries Date} & \today \\
+\end{tabular}\\[1cm]
+\egroup
+\noindent 08.02.2018
 \if@openright\cleardoublepage\else\clearpage\fi}
 
 
