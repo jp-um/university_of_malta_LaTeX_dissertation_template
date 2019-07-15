@@ -30,11 +30,14 @@
 \RequirePackage{xcolor}              % For named colors
 \RequirePackage{eso-pic}                 % required to place huge uni logo at the back - on title page
 \RequirePackage[pdftex]{graphicx}    % For pictures
-\RequirePackage{amssymb}             % at least, for black squares in bullet list
-\RequirePackage[pdfusetitle]{hyperref}            % for hyperreferences
-\RequirePackage[authoryear,semicolon,sort]{natbib}     % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
+\RequirePackage{amssymb}             % At least, for black squares in bullet list
+\RequirePackage[pdfusetitle]{hyperref}             % For hyperreferences
+\RequirePackage[authoryear,semicolon,sort]{natbib} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
 
-\usepackage[defaultsans]{lato}
+\RequirePackage{longtable}           % For very long tables
+\RequirePackage{pdflscape}			 % For landscape tables (instead of portrait)
+
+\usepackage[defaultsans]{lato}		 % Sans font to use
 \usepackage[printonlyused,withpage]{acronym}
 
 %% ****************** Packages (End) *********************
