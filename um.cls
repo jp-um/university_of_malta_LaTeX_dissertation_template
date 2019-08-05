@@ -255,7 +255,7 @@
 
 {\setlength{\parindent}{0em}
 	
-\textbf{(a) Authenticity of Dissertation}\\
+\textbf{(a) Authenticity of Dissertation}\vspace{3mm}
 
 \noindent I hereby declare that I am the legitimate author of this Dissertation and that it is my original work.
 
@@ -263,7 +263,7 @@ No portion of this work has been submitted in support of an application for anot
 
 I hold the University of Malta harmless against any third party claims with regard to copyright violation, breach of confidentiality, defamation and any other third party right infringement.\\
 
-\textbf{(b) Research Code of Practice and Ethics Review Procedures}\\
+\textbf{(b) Research Code of Practice and Ethics Review Procedures}\vspace{3mm}
 
 I declare that I have abided by the University’s Research Ethics Review Procedures.
 
@@ -271,17 +271,19 @@ As a Master’s student, as per Regulation 58 of the General Regulations for Uni
 %%\newcolumntype{L}{>{\arraybackslash}m{2.5in}}
 \bgroup
 \def\arraystretch{1.2}%
-\begin{tabular}{ll}
+\begin{tabular}{lp{3.3in}}
 {\bfseries Faculty/Institute/Centre/School} & \@faculty \\
 {\bfseries Degree} & \@degree \\
-{\bfseries Title}  & \removelinebreaks{\@title} \\	
+{\bfseries Title}  & \begin{hyphenrules}{nohyphenation}\removelinebreaks{\@title}\end{hyphenrules} \\	
 {\bfseries Candidate \@ifundefined{@authorID}{}{(Id.)}} & \@author\ \@ifundefined{@authorID}{}{(\@authorID)} \\[0.7in]	
 {\bfseries Signature of Student} & \makebox[2in]{\hrulefill} \\
 {\bfseries Date} & \today \\
-\end{tabular}\\[1cm]
+\end{tabular}
+\mbox{}\vfill
 \egroup
 \noindent 08.02.2018
 \if@openright\cleardoublepage\else\clearpage\fi}
+
 
 
 % COPYRIGHT
