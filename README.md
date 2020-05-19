@@ -19,6 +19,14 @@ The main file is `dissertation_main.tex`, and this will show you how to organise
 
 I am also keen on keeping an FAQ with the most common LaTeX problems, which you are bound to face on the night before your submission deadline.
 
+# Requirements
+
+For this template you will need the beautiful Lato font for headings.  This sans font creates a pleasing contrast with the serif text.  `lato.sty` can be installed (on Ubuntu) with:
+
+```
+sudo apt-get texlive-fonts-extra
+```
+
 ## FAQ
 
 ### What is the difference (if any) between a thesis and a dissertation?
