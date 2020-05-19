@@ -24,7 +24,7 @@ I am also keen on keeping an FAQ with the most common LaTeX problems, which you 
 For this template you will need the beautiful Lato font for headings.  This sans font creates a pleasing contrast with the serif text.  `lato.sty` can be installed (on Ubuntu) with:
 
 ```
-sudo apt-get texlive-fonts-extra
+sudo apt-get install texlive-fonts-extra
 ```
 
 ## FAQ
