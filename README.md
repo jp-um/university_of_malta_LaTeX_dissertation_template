@@ -75,3 +75,7 @@ It is always counter-productive to **not** listen to your supervisor.  This is a
 ### For references, which is better [42] or [Ebejer et al., 2019]?
 
 Many computational scientists are used to the IEEE referencing style with numbers, i.e. `[42]`.  But there is a reason why `plannat` is superior.  Your examiners (and supervisors) will be well aquainted with the research area and will know which are the main papers you should have read (and cited).  If you use the numbered referencing, the examiner has to keep cross-referencing the *References* section.  This is not the case when using the name of the author and year directly in the citation.  Moreover, it is easier for the examiner to realize when you are mis-citing an author.  Modern typsetting is moving in this direction.
+
+### I have a huge figure which takes up all the page.  I would like to switch off headers and the bottom page numbers, but ```\thispagestyle{empty}``` does nothing (or changes some other page).
+
+The template uses the ```floatpag``` package.  All you need to do is place a ```\thisfloatpagestyle{empty}``` inside the figure or table environment.  Et voilà!  There is an example of this [here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/chap2/background_and_lit_overview_main.tex).
