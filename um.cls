@@ -28,7 +28,10 @@
 \RequirePackage{mathpazo}            % Use the Palatino font by default
 \RequirePackage[english]{babel}      % Load babel if you're unsure about the default language - mostly to be safe
 \RequirePackage{xcolor}              % For named colors
-\RequirePackage{eso-pic}                 % required to place huge uni logo at the back - on title page
+\RequirePackage{eso-pic}             % required to place huge uni logo at the back - on title page
+\RequirePackage{datetime}			 % For Current Month and Year (cover page)
+\newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}
+
 \RequirePackage[pdftex]{graphicx}    % For pictures
 \RequirePackage{amssymb}             % At least, for black squares in bullet list
 \RequirePackage[pdfusetitle]{hyperref}             % For hyperreferences
