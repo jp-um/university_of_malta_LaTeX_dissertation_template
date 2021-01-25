@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2019/03/25 v1.2.1 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2021/01/25 v1.3 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
@@ -141,6 +141,9 @@
 \renewcommand*{\cftappendixname}{Appendix\space}
 \newcommand{\removelinebreaks}[1]{%
 	\begingroup\def\\{ }#1\endgroup}
+
+% Controls space between one reference and the next
+\setlength{\bibsep}{6.5pt}
 
 %% ************* Document Options (End) ******************
 
