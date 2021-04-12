@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2021/01/25 v1.3 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2021/04/12 v1.9 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
@@ -55,9 +55,9 @@
 \def\logo{{\includegraphics[width=30mm]{umlogo_crest_red}}}
 
 % The year and term the thesis is submitted 
-\def\degreedate#1{\gdef\@degreedate{#1}}
+\def\degreeDate#1{\gdef\@degreeDate{#1}}
 % The full (unabbreviated) name of the degree
-\def\degree#1{\gdef\@degree{#1}}
+\def\degreeName#1{\gdef\@degreeName{#1}}
 % The name of your supervisor
 \def\supervisor#1{\gdef\@supervisor{#1}}
 % The name of your co-supervisor
@@ -184,8 +184,8 @@
     {\large \@faculty} \\[1ex]
     {\large University of Malta} \\
     \vfill
-    {\bfseries \@degreedate}\\[\baselineskip]
-	\parbox[t]{0.80\linewidth}{\footnotesize\textit{A \@doctype\ submitted in partial fulfilment of the requirements for the degree of \@degree}.}    
+    {\bfseries \@degreeDate}\\[\baselineskip]
+	\parbox[t]{0.80\linewidth}{\footnotesize\textit{A \@doctype\ submitted in partial fulfilment of the requirements for the degree of \@degreeName}.}    
 }
 \thispagestyle{empty}
 \if@openright\cleardoublepage\else\clearpage\fi
@@ -279,7 +279,7 @@ As a Master’s student, as per Regulation 58 of the General Regulations for Uni
 \def\arraystretch{1.2}%
 \begin{tabular}{lp{3.3in}}
 {\bfseries Faculty/Institute/Centre/School} & \@faculty \\
-{\bfseries Degree} & \@degree \\
+{\bfseries Degree} & \@degreeName \\
 {\bfseries Title}  & \begin{hyphenrules}{nohyphenation}\removelinebreaks{\@title}\end{hyphenrules} \\	
 {\bfseries Candidate \@ifundefined{@authorID}{}{(Id.)}} & \@author\ \@ifundefined{@authorID}{}{(\@authorID)} \\[0.7in]	
 {\bfseries Signature of Student} & \makebox[2in]{\hrulefill} \\
