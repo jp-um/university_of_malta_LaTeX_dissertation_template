@@ -110,6 +110,9 @@
     % Bibliography
     \if@openright\cleardoublepage\else\clearpage\fi
     \bibliographystyle{um-plainnat} %% specific plainnat does not show url for articles
+    %The last chapter name from mainmatter was being appended to the top left heading of the reference pages.
+    \makeevenhead{umpage}{}{}{\color{gray}\sffamily\small\rightmark}
+    \makeoddhead{umpage}{}{}{\color{gray}\sffamily\small\rightmark}
     {\scriptsize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
 	\printindex
 }
