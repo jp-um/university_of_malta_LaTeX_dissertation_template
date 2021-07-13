@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2021/04/12 v1.9 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2021/07/13 v1.9 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
