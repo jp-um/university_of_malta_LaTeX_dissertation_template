@@ -105,7 +105,9 @@
 \graphicspath{{./images/}}                       % Where to look for images (paths) ...
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg} % Graphics extensions to load
 
+%% other possible values: bianchi, bringhurst, brotherton, chappell, crosshead, culver, dash, demo2, demo3, dowding, ell (default), ger, komalike, lyhne, madsen, ntglike, pedersen, southall, tandh, thatcher, veelo, verville, wilsondob
 \chapterstyle{ell} % how to draw the different chapter headings
+
 
 \renewcommand*{\chapnumfont}{\sffamily\HUGE\bfseries\color{UMRed}}  % Chapter titles should be normal
 \renewcommand*{\chaptitlefont}{\sffamily\HUGE\bfseries\color{UMRed}}
