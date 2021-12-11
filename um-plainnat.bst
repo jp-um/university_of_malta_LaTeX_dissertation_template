@@ -451,12 +451,12 @@ FUNCTION {either.or.check}
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
-    { "volume" volume tie.or.space.connect
+    { "Volume" volume tie.or.space.connect
       series empty$
         'skip$
         { " of " * series emphasize * }
       if$
-      "volume and number" number either.or.check
+      "Volume and Number" number either.or.check
     }
   if$
 }
