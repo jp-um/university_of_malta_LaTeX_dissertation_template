@@ -284,6 +284,11 @@ As a Master’s student, as per Regulation 58 of the General Regulations for Uni
 {\bfseries Degree} & \@degreeName \\
 {\bfseries Title}  & \begin{hyphenrules}{nohyphenation}\removelinebreaks{\@title}\end{hyphenrules} \\	
 {\bfseries Candidate \@ifundefined{@authorID}{}{(Id.)}} & \@author\ \@ifundefined{@authorID}{}{(\@authorID)} \\[0.7in]	
+
+\begin{tikzpicture}[remember picture,overlay,shift={(current page.south east)}]
+\node[anchor=south east,xshift=-8cm,yshift=6.5cm]{\includegraphics[width=3cm]{images/dummy_signature.png}};
+\end{tikzpicture}
+
 {\bfseries Signature of Student} & \makebox[2in]{\hrulefill} \\
 {\bfseries Date} & \today \\
 \end{tabular}
