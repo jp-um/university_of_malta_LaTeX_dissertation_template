@@ -98,6 +98,10 @@
 	\createmark{section}{right}{shownumber}{}{. \ }
 }
 
+\copypagestyle{umpageback}{umpage}
+\makeevenhead{umpageback}{\color{gray}\sffamily\small\leftmark}{}{}
+\makeoddhead{umpageback}{}{}{\color{gray}\sffamily\small\rightmark}
+
 
 \setlrmarginsandblock{3.7cm}{2.5cm}{*}           % Set the page margins (for one and two sided docs) 
 \checkandfixthelayout                            % Put layout into effect
