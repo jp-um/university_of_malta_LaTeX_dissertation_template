@@ -79,3 +79,7 @@ Many computational scientists are used to the IEEE referencing style with number
 ### I have a huge figure which takes up all the page.  I would like to switch off headers and the bottom page numbers, but ```\thispagestyle{empty}``` does nothing (or changes some other page).
 
 The template uses the ```floatpag``` package.  All you need to do is place a ```\thisfloatpagestyle{empty}``` inside the figure or table environment.  Et voilà!  There is an example of this [here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/chap2/background_and_lit_overview_main.tex).
+
+### How do I write good Latex Mathematical Notation/Formulae?
+
+The [Math on Quora](https://math-on-quora.surge.sh/) is all you need. Any math notation you might need is available conveniently in the menu bar. All examples contain live code blocks so you can try out your math formulae directly in the web browser.
