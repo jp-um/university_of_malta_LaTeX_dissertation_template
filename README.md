@@ -74,7 +74,7 @@ It is always counter-productive to **not** listen to your supervisor.  This is a
 
 ### For references, which is better [42] or [Ebejer et al., 2019]?
 
-Many computational scientists are used to the IEEE referencing style with numbers, i.e. `[42]`.  But there is a reason why `plannat` is superior.  Your examiners (and supervisors) will be well aquainted with the research area and will know which are the main papers you should have read (and cited).  If you use the numbered referencing, the examiner has to keep cross-referencing the *References* section.  This is not the case when using the name of the author and year directly in the citation.  Moreover, it is easier for the examiner to realize when you are mis-citing an author.  Modern typsetting is moving in this direction.
+Many computational scientists are used to the IEEE referencing style with numbers, i.e. `[42]`.  But there is a reason why `plannat`, or similar, is superior.  Your examiners (and supervisors) will be well acquainted with the research area and will know which are the main papers you should have read (and cited).  If you use numbered referencing, the examiner has to keep cross-referencing the *References* section.  This is not the case when using the name of the author and year directly in the citation.  Moreover, it is easier for the examiner to realize when you are mis-citing an author.  Modern typesetting is moving in this direction.
 
 ### I have a huge figure which takes up all the page.  I would like to switch off headers and the bottom page numbers, but ```\thispagestyle{empty}``` does nothing (or changes some other page).
 
