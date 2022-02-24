@@ -13,12 +13,12 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2021/09/14 v2.0 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2022/02/25 v2.1 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
 \ProcessOptions\relax
-\LoadClass[11pt,a4paper,final]{memoir}
+\LoadClass[12pt,a4paper,final]{memoir}
 
 
 %% **************** Packages (Start) *********************
@@ -52,7 +52,7 @@
 \definecolor{UMRed}{rgb}{0.73,0.09,0.19}   % UM Logo Color
 
 % Setup choosen University of Malta crest/logo
-\def\logo{{\includegraphics[width=30mm]{umlogo_crest_red}}}
+\def\logo{{\includegraphics[width=80mm]{fict_red_logo}}}
 
 % The year and term the thesis is submitted 
 \def\degreeDate#1{\gdef\@degreeDate{#1}}
@@ -79,32 +79,18 @@
 
 %% ************ Document Options (Start) *****************
 
+\renewcommand*\familydefault{\sfdefault}	     % san
 \OnehalfSpacing                                  % One and a half line spacing
 
 \setlength{\headsep}{1.5cm}                      % Add space between the header and text
 
 \nouppercaseheads								 % Don't convert titles to Uppercase
 \makepagestyle{umpage}
+\makeevenfoot{umpage}{}{\color{gray}\sffamily\small\thepage}{}
+\makeoddfoot{umpage}{}{\color{gray}\sffamily\small\thepage}{}
 
-												 % This travesty is due to a bug in memoir, see https://tex.stackexchange.com/questions/468922/oneside-in-memoir-causing-header-trouble
-\makeevenhead{umpage}{\color{gray}\sffamily\small\leftmark}{}{\color{gray}\sffamily\small\rightmark}
-\makeoddhead{umpage}{\color{gray}\sffamily\small\leftmark}{}{\color{gray}\sffamily\small\rightmark}
-\makeevenfoot{umpage}{}{\thepage}{}  			 % UM pagestyle, put page at bottom
-\makeoddfoot{umpage}{}{\thepage}{}
-\makeheadfootruleprefix{umpage}{\color{gray}}{}
-\makeheadrule{umpage}{\textwidth}{\normalrulethickness}
-\makepsmarks{umpage}{%
-	\createmark{chapter}{left}{shownumber}{\@chapapp\ }{. \ }
-	\createmark{section}{right}{shownumber}{}{. \ }
-}
-
-\copypagestyle{umpageback}{umpage}
-\makeevenhead{umpageback}{\color{gray}\sffamily\small\leftmark}{}{}
-\makeoddhead{umpageback}{}{}{\color{gray}\sffamily\small\rightmark}
-
-
-\setlrmarginsandblock{3.7cm}{2.5cm}{*}           % Set the page margins (for one and two sided docs) 
-\checkandfixthelayout                            % Put layout into effect
+\pagestyle{umpage}
+\floatpagestyle{umpage}
 
 \graphicspath{{./images/}}                       % Where to look for images (paths) ...
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg} % Graphics extensions to load
@@ -151,6 +137,10 @@
 % Controls space between one reference and the next
 \setlength{\bibsep}{6.5pt}
 
+\setlrmarginsandblock{3.7cm}{2.5cm}{*}           % Set the page margins (for one and two sided docs) 
+\checkandfixthelayout                            % Put layout into effect
+
+
 %% ************* Document Options (End) ******************
 
 
@@ -161,38 +151,32 @@
 %% *************** Environments (Start) ******************
 
 %% *** Title Page (Start) ***
-% background image
-% taken from http://tug.org/pracjourn/2008-1/mori/mori.pdf
-\newcommand\AlCentroPagina[1]{%
-\AddToShipoutPicture*{\AtPageCenter{%
-\makebox(0,-50){\includegraphics[width=0.5\paperwidth]{#1}}}}}
 
-% The front page
 \renewcommand{\maketitle}
 {\begingroup
-\AlCentroPagina{umlogo_crest_gray}
-\parbox[b][0.95\textheight][t]{0.2\textwidth}{\raggedleft\logo} %% this 0.95 is important, otherwise page overflows in next page
-\hspace*{2ex}
-\textcolor{UMRed}{\rule{2pt}{0.95\textheight}}
-\hspace*{2ex}
-\parbox[b][0.95\textheight][t]{0.8\textwidth}{
-    \setlength{\parindent}{0pt}
-    %%\fontfamily{pag}\selectfont
-    \sffamily
-    {\Huge\bfseries{\begin{Spacing}{1.15}\textcolor{UMRed}{\@title}\end{Spacing}}}
-    \vspace*{2ex}
-    {\large\textit{\@tagline}}\\[1in]
-    
-    {\LARGE\bfseries \textsc{\@author}} \\[1cm]
-    {\large Supervised by \@supervisor} 
-    \@ifundefined{@cosupervisor}{\\[2ex]}{\\[2ex]\large Co-supervised by \@cosupervisor}\\[1cm]
-    {\large \@department} \\[1ex]
-    {\large \@faculty} \\[1ex]
-    {\large University of Malta} \\
-    \vfill
-    {\bfseries \@degreeDate}\\[\baselineskip]
-	\parbox[t]{0.80\linewidth}{\footnotesize\textit{A \@doctype\ submitted in partial fulfilment of the requirements for the degree of \@degreeName}.}    
-}
+\setlength{\parindent}{0pt}
+%%\fontfamily{pag}\selectfont
+\sffamily
+\setlrmarginsandblock{3.7cm}{3cm}{*}
+\checkandfixthelayout
+\setlength{\vsize}{\textheight} %% you need these to reset the lengths
+\setlength{\columnwidth}{\textwidth}
+\setlength{\hsize}{\columnwidth}
+\setlength{\linewidth}{\hsize}
+{\Huge\bfseries{\begin{Spacing}{1.15}\textcolor{UMRed}{\@title}\end{Spacing}}}
+\vspace*{30mm}
+%%{\large\textit{\@tagline}}\\[1in]
+{\LARGE\bfseries \textsc{\@author}} \\[10mm]
+{\large Supervisor: \@supervisor} 
+\@ifundefined{@cosupervisor}{\\[20mm]}{\\[3mm]\large Co-supervisor: \@cosupervisor}\\[15mm]
+{\large \@department} \\[3mm]
+{\large \@faculty} \\[3mm]
+{\large University of Malta} \\[15mm]
+{\bfseries \@degreeDate}\\
+\vfill
+%%\parbox[t]{80mm}{\footnotesize\textit{A \@doctype\ submitted in partial fulfilment of the requirements for the degree of \@degreeName}.} \\[3ex] 
+\footnotesize\textit{A \@doctype\ submitted in partial fulfilment of the requirements for the degree of \@degreeName}. \\[15mm] 
+\logo
 \thispagestyle{empty}
 \if@openright\cleardoublepage\else\clearpage\fi
 \endgroup}
