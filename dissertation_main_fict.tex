@@ -19,7 +19,7 @@
 %% and oneside for the final thing you submit to the library.  Note that margins will
 %% change accordingly
 
-\documentclass[twoside]{um}  % custom University of Malta project/dissertation/thesis 
+\documentclass[oneside]{um-fict}  % custom University of Malta project/dissertation/thesis 
 
 
 %% **************** (Your) Packages (Start) ******************
@@ -38,7 +38,7 @@
 
 %% **************** (Your) Data (Start) ******************
 
-\title{Machine Learning\\Approaches to the\\Blockchain}  % use \\ here otherwise you get a justified title
+\title{Machine Learning Approaches to the Blockchain}  % use \\ here otherwise you get a justified title
                                      % note capitalization of the title (only common 
                                      % words in lower case)
 \tagline{some hyped-up tagline}      % tag line
@@ -47,13 +47,12 @@
 \supervisor{Dr Zhivago}              % your supervisor(s) name - no . in Dr
 \cosupervisor{Dr Who}                % your cosupervisor(s) name - no . in Dr *OPTIONAL* 
                                      % simply comment out the above line if absent
-\department{Department of Alchemy}   % your department (e.g. Artificial Intelligence)
-\faculty{Faculty of Something}       % your faculty (e.g. ICT)
-\degreeName{M.Sc.\ in Your Degree}       % the degree you are reading
+
+\degreeName{Some Degree}       		 % the degree you are reading
                                      % note the \ after the dot, so not to consider it a fullstop
 \doctype{dissertation}               % the type of document (fyp, dissertation, thesis)
 \degreeDate{\monthyeardate\today}    % when did you submit (officially after your corrections)
-%%\subjectcode{ICS5200}                % the study unit-code (currently not used)
+%%\subjectcode{ICS5200}              % the study unit-code (currently not used)
 
 %% ***************** (Your) Data (End) *******************
 
@@ -81,9 +80,8 @@
 \begin{document}
 \frontmatter 
     \maketitle
-    \input{frontmatter/copyright}       
-    %% The originality statement is *NOT* part of the dissertation but submitted separately.
-    \input{frontmatter/dedication}        % include a dedication.tex file
+%%    \input{frontmatter/copyright}       
+%%    \input{frontmatter/dedication}        % include a dedication.tex file
     \input{frontmatter/acknowledgements}   % include an acknowledgements.tex file
     \input{frontmatter/abstract}\if@openright\cleardoublepage\else\clearpage\fi
     \tableofcontents*\if@openright\cleardoublepage\else\clearpage\fi
@@ -92,8 +90,8 @@
     \input{frontmatter/abbreviations}\if@openright\cleardoublepage\else\clearpage\fi
 
 %% Note: always use \input as you cannot nest \includes (amongst other things)
-\pagestyle{umpage}
-\floatpagestyle{umpage}
+%\pagestyle{umpage}
+%\floatpagestyle{umpage}
 \mainmatter 
     \input{chap1/introduction_main} 
     \input{chap2/background_and_lit_overview_main}
@@ -106,14 +104,14 @@
         \input{appB/appendix_b_main}    
         \input{appC/appendix_c_main} 
 
-\pagestyle{umpageback}
+%%\pagestyle{umpageback}
 {\backmatter
     % Bibliography
     \if@openright\cleardoublepage\else\clearpage\fi
-
+	%% For references use IEEE style [5] or Harvard style [6]
     \bibliographystyle{um-plainnat} %% specific plainnat does not show url for articles
     % Use something like https://flamingtempura.github.io/bibtex-tidy/ to clean all your bibtex entries
-    { 	\scriptsize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
+    {\scriptsize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
 	\printindex
 }
 
