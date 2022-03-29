@@ -115,13 +115,13 @@
 \renewenvironment{acknowledgements}
 {\setlength{\parindent}{0pt}% No paragraph indent
 	\begin{adjustwidth}{13mm}{13mm}
-		{\Large\textcolor{DissertationColor}{Acknowledgements}\par}\bigskip}
+		{\bfseries\LARGE\textcolor{DissertationColor}{Acknowledgements}\par}\bigskip}
 	{\end{adjustwidth}\if@openright\cleardoublepage\else\clearpage\fi}
 
 \renewenvironment{abstract}
 {\setlength{\parindent}{0pt}% No paragraph indent
 	\begin{adjustwidth}{13mm}{13mm}
-		{\Large\textcolor{DissertationColor}{Abstract}\par}\bigskip}
+		{\bfseries\LARGE\textcolor{DissertationColor}{Abstract}\par}\bigskip}
 	{\end{adjustwidth}\if@openright\cleardoublepage\else\clearpage\fi}
 
 

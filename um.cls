@@ -41,6 +41,7 @@
 \RequirePackage{pdflscape}			 % For landscape tables (instead of portrait)
 \RequirePackage{amsthm}			 % For theorems, proof, lemma
 \RequirePackage{listings}			 % For code listings
+\usepackage[width=.95\textwidth]{caption} % set the width of the captions
 
 \RequirePackage{algorithm}
 \RequirePackage{algpseudocode}

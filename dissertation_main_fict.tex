@@ -85,8 +85,8 @@
     \input{frontmatter/acknowledgements}   % include an acknowledgements.tex file
     \input{frontmatter/abstract}\if@openright\cleardoublepage\else\clearpage\fi
     \tableofcontents*\if@openright\cleardoublepage\else\clearpage\fi
-    \listoffigures*\if@openright\cleardoublepage\else\clearpage\fi
-    \listoftables*\if@openright\cleardoublepage\else\clearpage\fi
+    \listoffigures\if@openright\cleardoublepage\else\clearpage\fi
+    \listoftables\if@openright\cleardoublepage\else\clearpage\fi
     \input{frontmatter/abbreviations}\if@openright\cleardoublepage\else\clearpage\fi
 
 %% Note: always use \input as you cannot nest \includes (amongst other things)
@@ -99,13 +99,9 @@
     \input{chap4/results_and_discussion_main}
     \input{chap5/evaluation_main}
     \input{chap6/conclusions_main}
-    \appendix
-        \input{appA/appendix_a_main}     % these are just test names as I didn't know what you'd want
-        \input{appB/appendix_b_main}    
-        \input{appC/appendix_c_main} 
 
 %%\pagestyle{umpageback}
-{\backmatter
+{%backmatter % comment this out otherwise are not numbered
     % Bibliography
     \if@openright\cleardoublepage\else\clearpage\fi
 	%% For references use IEEE style [5] or Harvard style [6]
@@ -114,6 +110,14 @@
     {\scriptsize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
 	\printindex
 }
+
+\appendix
+	\input{appA/appendix_a_main}     % these are just test names as I didn't know what you'd want
+	\input{appB/appendix_b_main}    
+	\input{appC/appendix_c_main} 
+
+
+
 
 \end{document}
 
