@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2021/09/14 v2.0 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2022/03/17 v2.1 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
@@ -39,6 +39,13 @@
 \RequirePackage{floatpag}			 % Used to hide page number on pages which contain only floats ... put a \thisfloatpagestyle{empty} in the float env, e.g. figure ...
 \RequirePackage{longtable}           % For very long tables
 \RequirePackage{pdflscape}			 % For landscape tables (instead of portrait)
+\RequirePackage{amsthm}			 % For theorems, proof, lemma
+\RequirePackage{listings}			 % For code listings
+\usepackage[width=.95\textwidth]{caption} % set the width of the captions
+
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
+\RequirePackage{courier}
 
 \usepackage[defaultsans]{lato}		 % Sans font to use
 \usepackage[printonlyused,withpage]{acronym}
@@ -50,6 +57,8 @@
 
 \definecolor{OxfordBlue}{rgb}{0,0.106,0.329}   % Color
 \definecolor{UMRed}{rgb}{0.73,0.09,0.19}   % UM Logo Color
+
+\colorlet{DissertationColor}{UMRed}   
 
 % Setup choosen University of Malta crest/logo
 \def\logo{{\includegraphics[width=30mm]{umlogo_crest_red}}}
@@ -77,7 +86,35 @@
 %% ************* UM Definitions (End) ******************
 
 
+
+
 %% ************ Document Options (Start) *****************
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
 
 \OnehalfSpacing                                  % One and a half line spacing
 
@@ -113,16 +150,16 @@
 \chapterstyle{ell} % how to draw the different chapter headings
 
 
-\renewcommand*{\chapnumfont}{\sffamily\HUGE\bfseries\color{UMRed}}  % Chapter titles should be normal
-\renewcommand*{\chaptitlefont}{\sffamily\HUGE\bfseries\color{UMRed}}
-\setsecheadstyle{\sffamily\LARGE\bfseries\color{UMRed}}% Set \section style
-\setsubsecheadstyle{\sffamily\Large\color{UMRed}}% Set \subsection style
-\setsubsubsecheadstyle{\sffamily\large\color{UMRed}}% Set \subsection style
+\renewcommand*{\chapnumfont}{\sffamily\HUGE\bfseries\color{DissertationColor}}  % Chapter titles should be normal
+\renewcommand*{\chaptitlefont}{\sffamily\HUGE\bfseries\color{DissertationColor}}
+\setsecheadstyle{\sffamily\LARGE\bfseries\color{DissertationColor}}% Set \section style
+\setsubsecheadstyle{\sffamily\Large\color{DissertationColor}}% Set \subsection style
+\setsubsubsecheadstyle{\sffamily\large\color{DissertationColor}}% Set \subsection style
 \setsecnumformat{\csname the#1\endcsname\enskip{\color{gray}\textbar}\enskip}
 
 \newsubfloat{figure} % declares a new subfloat element which allows to use \subbottom commands
 
-\renewcommand{\labelitemi}{\color{UMRed}\scriptsize$\blacksquare$}
+\renewcommand{\labelitemi}{\color{DissertationColor}\scriptsize$\blacksquare$}
 
 \addto{\captionsenglish}{\renewcommand{\bibname}{References}} % because we are using babel we need this
                                                               % instead of just redefining bibname
@@ -132,9 +169,9 @@
 
 \hypersetup{%
     colorlinks=false,
-%    linkcolor=UMRed,
-%    citecolor=UMRed,
-%    urlcolor=UMRed,
+%    linkcolor=DissertationColor,
+%    citecolor=DissertationColor,
+%    urlcolor=DissertationColor,
 %    filecolor=magenta, 
     pdfborder={0 0 0},    
 }
@@ -150,6 +187,10 @@
 
 % Controls space between one reference and the next
 \setlength{\bibsep}{6.5pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
 
 %% ************* Document Options (End) ******************
 
@@ -173,13 +214,13 @@
 \AlCentroPagina{umlogo_crest_gray}
 \parbox[b][0.95\textheight][t]{0.2\textwidth}{\raggedleft\logo} %% this 0.95 is important, otherwise page overflows in next page
 \hspace*{2ex}
-\textcolor{UMRed}{\rule{2pt}{0.95\textheight}}
+\textcolor{DissertationColor}{\rule{2pt}{0.95\textheight}}
 \hspace*{2ex}
 \parbox[b][0.95\textheight][t]{0.8\textwidth}{
     \setlength{\parindent}{0pt}
     %%\fontfamily{pag}\selectfont
     \sffamily
-    {\Huge\bfseries{\begin{Spacing}{1.15}\textcolor{UMRed}{\@title}\end{Spacing}}}
+    {\Huge\bfseries{\begin{Spacing}{1.15}\textcolor{DissertationColor}{\@title}\end{Spacing}}}
     \vspace*{2ex}
     {\large\textit{\@tagline}}\\[1in]
     
@@ -199,10 +240,10 @@
 %% *** Title Page (End) ***
 
 \newenvironment{acknowledgements}
-{\renewcommand{\abstractname}{\Large\bfseries\sffamily\textcolor{UMRed}{Acknowledgements}}\abstract}
+{\renewcommand{\abstractname}{\Large\bfseries\sffamily\textcolor{DissertationColor}{Acknowledgements}}\abstract}
 {\endabstract\if@openright\cleardoublepage\else\clearpage\fi}
        
-\addto{\captionsenglish}{\renewcommand{\abstractname}{\Large\bfseries\sffamily\textcolor{UMRed}{Abstract}}}
+\addto{\captionsenglish}{\renewcommand{\abstractname}{\Large\bfseries\sffamily\textcolor{DissertationColor}{Abstract}}}
 
 
 \newenvironment{dedication}
@@ -211,7 +252,7 @@
    \vspace*{\stretch{1}}% some space at the top 
    \itshape             % the text is in italics
    \raggedleft          % flush to the right margin
-   \textcolor{UMRed}
+   \textcolor{DissertationColor}
   }
   {\par % end the paragraph
    \vspace{\stretch{3}} % space at bottom is three times that at the top
@@ -223,7 +264,7 @@
 %%{\begin{alwayssingle} \thispagestyle{empty}
 %%\begin{center}
 %%\vspace*{0.5cm}
-%%{\large \bfseries \textcolor{UMRed}{Abstract}}
+%%{\large \bfseries \textcolor{DissertationColor}{Abstract}}
 %%\end{center}
 %%\singlespacing\enlargethispage{\baselineskip}}
 %%{\end{alwayssingle}}
@@ -242,7 +283,7 @@
 %{\clearpage
 %\begin{center}
 %\vspace*{1.5cm}
-%{\Large\bfseries\sffamily\textcolor{UMRed}{Statement of Originality}\par}
+%{\Large\bfseries\sffamily\textcolor{DissertationColor}{Statement of Originality}\par}
 %\vspace*{1.5cm}
 %{I, the undersigned, declare that this is my own work unless where otherwise acknowledged and referenced. \par}
 %\vspace*{1.5cm}
@@ -263,7 +304,7 @@
 	\includegraphics[width=2.5in]{umlogo_full_red}
 \end{figure}
 \vspace{3mm}
-{\noindent\Large\bfseries\sffamily\textcolor{UMRed}{Declaration by Postgraduate Students}}\\ %% FIXME this will have to change if not postgraduate ...
+{\noindent\Large\bfseries\sffamily\textcolor{DissertationColor}{Declaration by Postgraduate Students}}\\ %% FIXME this will have to change if not postgraduate ...
 
 {\setlength{\parindent}{0em}
 	
