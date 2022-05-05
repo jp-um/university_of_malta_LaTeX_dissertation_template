@@ -15,9 +15,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um-fict}[2022/03/17 v0.9 University of Malta, Dissertation/FYP/Thesis Template]
-
-
+\ProvidesClass{um-fict}[2022/05/22 v1.0 University of Malta, Dissertation/FYP/Thesis Template]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{um}}
 \ProcessOptions\relax
@@ -42,13 +40,13 @@
 \makeevenhead{umpage-noheader}{}{}{}
 \makeoddhead{umpage-noheader}{}{}{}
 
+
+\RequirePackage{changepage}
+\chapterstyle{section} % they don't want the "Chapter 1" which appears as default
+
 \pagestyle{umpage}
 \aliaspagestyle{chapter}{umpage-noheader}
 \floatpagestyle{empty}
-
-\RequirePackage{changepage}
-
-\chapterstyle{default}
 
 \setsecnumformat{\csname the#1\endcsname\enskip}
 \renewcommand{\labelitemi}{\color{DissertationColor}\scriptsize\textbullet}
