@@ -366,27 +366,32 @@ def incmatrix(genl1,genl2):
 
 \section{An Algorithm Example}
 
-\begin{algorithm}
-	\caption{An algorithm with caption}\label{alg:cap}
-	\begin{algorithmic}
-		\Require $n \geq 0$
-		\Ensure $y = x^n$
-		\State $y \gets 1$
-		\State $X \gets x$
-		\State $N \gets n$
-		\While{$N \neq 0$}
-		\If{$N$ is even}
-		\State $X \gets X \times X$
-		\State $N \gets \frac{N}{2}$  \Comment{This is a comment}
-		\ElsIf{$N$ is odd}
-		\State $y \gets y \times X$
-		\State $N \gets N - 1$
-		\EndIf
-		\EndWhile
-	\end{algorithmic}
+
+%% This is needed if you want to add comments in
+%% your algorithm with \Comment
+\SetKwComment{Comment}{/* }{ */}
+
+\begin{algorithm}[hbt!]
+	\caption{An algorithm with caption}\label{alg:example}
+	\KwData{$n \geq 0$}
+	\KwResult{$y = x^n$}
+	$y \gets 1$\;
+	$X \gets x$\;
+	$N \gets n$\;
+	\While{$N \neq 0$}{
+		\eIf{$N$ is even}{
+			$X \gets X \times X$\;
+			$N \gets \frac{N}{2} $ \Comment*[r]{This is a comment}
+		}{\If{$N$ is odd}{
+				$y \gets y \times X$\;
+				$N \gets N - 1$\;
+			}
+		}
+	}
 \end{algorithm}
 
-\blindtext
+An algorithm example is shown in Algorithm~\ref{alg:example}. \blindtext
+
 
 \section{Some Technique One}
 \index{Some Technique One|(}
@@ -426,15 +431,19 @@ Note that this section may be sectioned based on the different aspects of your d
 
 \section{An Example of Suppressing Page Numbers on A Float Page}
 
-Kindly refer to Figure~\ref{fig:largegoku}.
+Kindly refer to Figure~\ref{fig:largegoku}. 
+
+\blindtext
 
 \begin{figure}[!ht]
 	\thisfloatpagestyle{empty} %% This is the key line to suppress page decorations (including nos.) on float pages.
 	\centering
 	\includegraphics[width=0.9\textwidth]{goku-large}
-	\caption[Short Random Caption]{\blindtext}        
+	\caption[Short Random Caption]{Page numbers are suppressed on this page.}
 	\label{fig:largegoku}
 \end{figure}
 
-\section{Summary}
 \blindtext
+
+\section{Summary}
+\blindtext[3]

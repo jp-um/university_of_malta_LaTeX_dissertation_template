@@ -43,8 +43,9 @@
 \RequirePackage{listings}			 % For code listings
 \usepackage[width=.95\textwidth]{caption} % set the width of the captions
 
-\RequirePackage{algorithm}
-\RequirePackage{algpseudocode}
+\RequirePackage[ruled]{algorithm2e}		% use algorithm2e instead of algorithm only, as the former is more customizable
+%%\RequirePackage{algpseudocode} 		% do not include this, as algorithm2e will include this as well
+
 \RequirePackage{courier}
 
 \usepackage[defaultsans]{lato}		 % Sans font to use
