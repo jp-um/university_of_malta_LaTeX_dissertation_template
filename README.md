@@ -83,3 +83,9 @@ The template uses the ```floatpag``` package.  All you need to do is place a ```
 ### How do I write good Latex Mathematical Notation/Formulae?
 
 The [Math on Quora](https://math-on-quora.surge.sh/) is all you need. Any math notation you might need is available conveniently in the menu bar. All examples contain live code blocks so you can try out your math formulae directly in the web browser.
+
+
+### How do subgroup my chapters in parts?
+
+Some of the longer documents, such as doctoral dissertations, require a sub-grouping of chapters together. This may be easily achieved with `\part{My First Part}` in the the main document file (e.g. `dissertation_main.tex`) right before the chapters which make up the part (see [example](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/dissertation_main.tex)).
+
