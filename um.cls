@@ -4,7 +4,7 @@
 %% **                                                **
 %% **    LaTeX Template for Thesis/Dissertation/FYP  **
 %% **                                                **
-%% **              Dr Jean-Paul Ebejer               **
+%% **            Prof. Jean-Paul Ebejer              **
 %% **            jean.p.ebejer@um.edu.mt             **
 %% **                                                **
 %% **     "Build something which will outlast you"   **
@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2022/03/17 v2.1 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2023/10/06 v2.3 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
@@ -35,7 +35,12 @@
 \RequirePackage[pdftex]{graphicx}    % For pictures
 \RequirePackage{amssymb}             % At least, for black squares in bullet list
 \RequirePackage[pdfusetitle]{hyperref}             % For hyperreferences
+
+%% Uncomment the following lines for APA referencing (and remove the next line)
+%%\RequirePackage{apacite}
+%%\RequirePackage{natbib} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
 \RequirePackage[authoryear,semicolon,sort]{natbib} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
+
 \RequirePackage{floatpag}			 % Used to hide page number on pages which contain only floats ... put a \thisfloatpagestyle{empty} in the float env, e.g. figure ...
 \RequirePackage{longtable}           % For very long tables
 \RequirePackage{pdflscape}			 % For landscape tables (instead of portrait)
@@ -118,6 +123,7 @@
 \lstset{style=mystyle}
 
 \OnehalfSpacing                                  % One and a half line spacing
+
 
 \setlength{\headsep}{1.5cm}                      % Add space between the header and text
 

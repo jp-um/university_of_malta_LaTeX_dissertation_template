@@ -3,7 +3,7 @@
 %% The updated version of this document should be downloaded from
 %%      https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template
 %%
-%% In case of any difficulties please contact Dr JP Ebejer on jean.p.ebejer@um.edu.mt
+%% In case of any difficulties please contact Prof. JP Ebejer on jean.p.ebejer@um.edu.mt
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -117,7 +117,10 @@
 {\backmatter
     % Bibliography
     \if@openright\cleardoublepage\else\clearpage\fi
-
+	
+	%% for APA
+	%% \bibliographystyle{apacite}
+	%% for plainnat
     \bibliographystyle{um-plainnat} %% specific plainnat does not show url for articles
     % Use something like https://flamingtempura.github.io/bibtex-tidy/ to clean all your bibtex entries
     { 	\scriptsize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}

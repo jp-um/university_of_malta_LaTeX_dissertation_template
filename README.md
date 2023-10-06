@@ -21,10 +21,11 @@ I am also keen on keeping an FAQ with the most common LaTeX problems, which you 
 
 # Requirements
 
-For this template you will need the beautiful Lato font for headings.  This sans font creates a pleasing contrast with the serif text.  `lato.sty` can be installed (on Ubuntu) with:
+For this template you will need the beautiful Lato font for headings and also algorithm typesetting from the science packages.  This sans font creates a pleasing contrast with the serif text.  `lato.sty` can be installed (on Ubuntu) with:
 
 ```
-sudo apt install texlive-fonts-extra
+sudo apt install texlive-fonts-extra texlive-science
+
 ```
 
 ## FAQ
@@ -79,6 +80,27 @@ Many computational scientists are used to the IEEE referencing style with number
 ### I have a huge figure which takes up all the page.  I would like to switch off headers and the bottom page numbers, but ```\thispagestyle{empty}``` does nothing (or changes some other page).
 
 The template uses the ```floatpag``` package.  All you need to do is place a ```\thisfloatpagestyle{empty}``` inside the figure or table environment.  Et voilà!  There is an example of this [here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/chap2/background_and_lit_overview_main.tex).
+
+### How do I change the referencing style change from plainnat to APA?
+
+This is more involved than I would have liked, but anyway. Follow these steps:
+
+1. From the `natbib` package import in [um.cls](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/b08c822a3b1043699258adc53fb0547f1a1d1bde/um.cls#L38C52-L38C52), remove all options `[authoryear,semicolon,sort]` as these are incompatible with the `apacite` package (which we need for APA referencing)
+2. Above the line changed above, insert `\RequirePackage{apacite}`
+3. In [dissertation_main.tex](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/b08c822a3b1043699258adc53fb0547f1a1d1bde/dissertation_main.tex#L121) change the bibliography style from `um-plainnat` to `apacite`.
+4. Rebuild the bibliography and recompile the document.
+
+### How do I change the one-and-a-half to double line spacing?
+
+In my opinion you don't want to do this because the document is going to become very long. The idea of having double line spacing is to let examiners/supervisors write between the lines. This is not required for the final submission and mostly superceded by more modern word-processing and reviewing tools. Also, the current one and a half line spacing gives enough space for this.
+
+If you want to go ahead anyway with this, change this line in [um.cls](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/b08c822a3b1043699258adc53fb0547f1a1d1bde/um.cls#L120) from `\OnehalfSpacing` to `\DoubleSpacing`.
+
+### How do I change the document margins?
+
+Also required in ancient times to write notes in the margin (and again superceded by modern word-processing and reviewing tools).
+
+Still, should be an easy one, just change the values in the following line in [um.cls](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/b08c822a3b1043699258adc53fb0547f1a1d1bde/um.cls#L144C2-L144C2).
 
 ### How do I write good Latex Mathematical Notation/Formulae?
 
