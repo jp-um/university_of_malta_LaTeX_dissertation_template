@@ -53,6 +53,8 @@
 
 \RequirePackage{courier}
 
+\RequirePackage{placeins}			% To use \FloatBarrier
+
 \usepackage[defaultsans]{lato}		 % Sans font to use
 \usepackage[printonlyused,withpage]{acronym}
 
@@ -208,6 +210,9 @@
 
 %% *************** Environments (Start) ******************
 
+
+
+
 %% *** Title Page (Start) ***
 % background image
 % taken from http://tug.org/pracjourn/2008-1/mori/mori.pdf
@@ -245,6 +250,9 @@
 \if@openright\cleardoublepage\else\clearpage\fi
 \endgroup}
 %% *** Title Page (End) ***
+
+\addto{\captionsenglish}{\renewcommand{\abstractname}{\Large\bfseries\sffamily\textcolor{DissertationColor}{Abstract}}}
+
 
 \newenvironment{acknowledgements}
 {\renewcommand{\abstractname}{\Large\bfseries\sffamily\textcolor{DissertationColor}{Acknowledgements}}\abstract}

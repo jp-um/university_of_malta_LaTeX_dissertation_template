@@ -44,7 +44,7 @@
 \tagline{some hyped-up tagline}      % tag line
 \author{Jean-Paul Ebejer}            % your full name
 \authorID{123456M}                   % your University Identifier
-\supervisor{Dr Zhivago}              % your supervisor(s) name - no . in Dr
+\supervisor{Prof.\ Dumbledore}           % your supervisor(s) name
 \cosupervisor{Dr Who}                % your cosupervisor(s) name - no . in Dr *OPTIONAL* 
                                      % simply comment out the above line if absent
 \department{Department of Alchemy}   % your department (e.g. Artificial Intelligence)
@@ -60,7 +60,6 @@
 %%
 \renewcommand{\chapterheadstart}{\vspace*{\beforechapskip}}
 \setlength\beforechapskip{0mm}
-
 
 
 %% ******** (Your) Document Settings (Start) *************
@@ -100,6 +99,9 @@
 \pagestyle{umpage}
 \floatpagestyle{umpage}
 \mainmatter 
+test
+\expandafter\show\the\font
+test
 %%	\part{Your First Part} %% PhDs may require this parts idea as well.
     \input{chap1/introduction_main} 
     \input{chap2/background_and_lit_overview_main}
