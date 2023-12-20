@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2023/10/06 v2.3 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2023/12/20 v2.4 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
@@ -52,8 +52,6 @@
 %%\RequirePackage{algpseudocode} 		% do not include this, as algorithm2e will include this as well
 
 \RequirePackage{courier}
-
-\RequirePackage{placeins}			% To use \FloatBarrier
 
 \usepackage[defaultsans]{lato}		 % Sans font to use
 \usepackage[printonlyused,withpage]{acronym}
