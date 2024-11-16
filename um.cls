@@ -39,8 +39,10 @@
 %% Uncomment the following lines for APA referencing (and remove the next line)
 %%\RequirePackage{apacite}
 %%\RequirePackage{natbib} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
-\RequirePackage[authoryear,semicolon,sort]{natbib} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
+%%\RequirePackage[authoryear,semicolon,sort]{natbib} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
 
+%%\RequirePackage{biblatex} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
+\RequirePackage[backend=biber]{biblatex}
 \RequirePackage{floatpag}			 % Used to hide page number on pages which contain only floats ... put a \thisfloatpagestyle{empty} in the float env, e.g. figure ...
 \RequirePackage{longtable}           % For very long tables
 \RequirePackage{pdflscape}			 % For landscape tables (instead of portrait)
@@ -193,7 +195,7 @@
 	\begingroup\def\\{ }#1\endgroup}
 
 % Controls space between one reference and the next
-\setlength{\bibsep}{6.5pt}
+%%\setlength{\bibsep}{6.5pt}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]

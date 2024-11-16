@@ -21,7 +21,7 @@
 %% and oneside for the final thing you submit to the library.  Note that margins will
 %% change accordingly
 
-\documentclass[twoside]{um}  % custom University of Malta project/dissertation/thesis 
+\documentclass[oneside]{um}  % custom University of Malta project/dissertation/thesis 
 
 
 %% **************** (Your) Packages (Start) ******************
@@ -71,6 +71,9 @@
 \graphicspath{{./images/}{./chap1/images/}{./chap2/images/}}   % Paths where to look for images, if defined "images" must always be there as it holds the images in-use by the template.
 
 \makeindex
+
+\addbibresource{chap1/introduction_biblio.bib}
+\addbibresource{chap2/background_and_lit_overview_biblio.bib}
 
 %% ********* (Your) Document Settings (End) **************
 
@@ -123,9 +126,10 @@
 	%% for APA
 	%% \bibliographystyle{apacite}
 	%% for plainnat
-    \bibliographystyle{um-plainnat} %% specific plainnat does not show url for articles
+    %% \bibliographystyle{um-plainnat} %% specific plainnat does not show url for articles
     % Use something like https://flamingtempura.github.io/bibtex-tidy/ to clean all your bibtex entries
-    { 	\scriptsize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
+    \printbibheading
+   \printbibliography
 	\printindex
 }
 
