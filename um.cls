@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2023/12/20 v2.4 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2024/11/18 v2.5 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
@@ -35,14 +35,8 @@
 \RequirePackage[pdftex]{graphicx}    % For pictures
 \RequirePackage{amssymb}             % At least, for black squares in bullet list
 \RequirePackage[pdfusetitle]{hyperref}             % For hyperreferences
-
-%% Uncomment the following lines for APA referencing (and remove the next line)
-%%\RequirePackage{apacite}
-%%\RequirePackage{natbib} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
-%%\RequirePackage[authoryear,semicolon,sort]{natbib} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
-
-%%\RequirePackage{biblatex} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
-\RequirePackage[backend=biber]{biblatex}
+% Use APA style
+\RequirePackage[style=apa,backend=biber]{biblatex} %% style can be "ieee", "chicago-authordate", etc.
 \RequirePackage{floatpag}			 % Used to hide page number on pages which contain only floats ... put a \thisfloatpagestyle{empty} in the float env, e.g. figure ...
 \RequirePackage{longtable}           % For very long tables
 \RequirePackage{pdflscape}			 % For landscape tables (instead of portrait)
@@ -170,8 +164,7 @@
 
 \renewcommand{\labelitemi}{\color{DissertationColor}\scriptsize$\blacksquare$}
 
-\addto{\captionsenglish}{\renewcommand{\bibname}{References}} % because we are using babel we need this
-                                                              % instead of just redefining bibname
+% Controls space between one reference and the next
 \setlength{\bibitemsep}{\onelineskip}
 
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}} % to set array stretch within tables
@@ -194,8 +187,6 @@
 \newcommand{\removelinebreaks}[1]{%
 	\begingroup\def\\{ }#1\endgroup}
 
-% Controls space between one reference and the next
-%%\setlength{\bibsep}{6.5pt}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]

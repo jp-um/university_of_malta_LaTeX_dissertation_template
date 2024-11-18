@@ -4,7 +4,7 @@ This section should include a recipe of what you did (explain what you have done
 
 \blindtext
 
-\section{An Example of a Subsection and Subsubsection}
+\section{Subsections and Subsubsections}
 
 This is a section.
 
@@ -16,7 +16,7 @@ This is a subsection.
 
 This is a subsubsection.
 
-\section{An Example of an Equation}
+\section{Equations}
 
 The following is the most beautiful equation in maths, Euler's Identity (Equation~\ref{eq:euleridentity}).
 
@@ -32,7 +32,7 @@ where:
 
 \blindtext[2]
 
-\section{An Example of a Numbered List}
+\section{Numbered Lists}
 
 This is an example of a numbered list:
 
@@ -45,7 +45,7 @@ This is an example of a numbered list:
 
 \blindtext
 
-\section{An Example of a Bulleted List}
+\section{Bulleted Lists}
 
 This is an example of a bulleted list:
 
@@ -58,7 +58,7 @@ This is an example of a bulleted list:
 
 \blindtext
 
-\section{An Example of a Figure}
+\section{Figures}
 
 A test figure is shown in Figure~\ref{fig:test1}.
 
@@ -71,7 +71,7 @@ A test figure is shown in Figure~\ref{fig:test1}.
 
 \blindtext
 
-\section{An Example of a Side-by-Side Figure}
+\section{Two Side-by-Side Figures}
 
 Two figures shown side-by-side are shown in Figure~\ref{fig:test2}.
 
@@ -85,17 +85,16 @@ Two figures shown side-by-side are shown in Figure~\ref{fig:test2}.
 
 \blindtext
 
-\section{An Example Using Acronyms}
+\section{Acronyms}
 
 In the early nineties, \acs{GSM} was deployed in many European countries. \ac{GSM} offered for the first time international roaming for mobile subscribers. The \acs{GSM}’s use of \ac{TDMA} as its communication standard was debated at length. And every now and then there are big discussion whether \ac{CDMA} should have been chosen over \ac{TDMA}.
 
 If you want to know more about \acf{GSM}, \acf{TDMA}, \acf{CDMA} and other acronyms, just read a book about mobile communication. Just to mention it: There is another \ac{UA}, for testing.
 
-\blindtext
 
-\section{An Example of a Table}
+\section{Tables}
 
-A beautiful table is shown in Table~\ref{tab:sometable}, data from \cite{Ebejer2012} (when citing as part of text, otherwise use parentheses \cite{Ebejer2012} version).
+A beautiful table is shown in Table~\ref{tab:sometable}, data from \textcite{Ebejer2012}.
 
 \begin{table*}\centering
 	\ra{1.3}
@@ -118,7 +117,7 @@ A beautiful table is shown in Table~\ref{tab:sometable}, data from \cite{Ebejer2
 
 \blindtext
 
-\section{An Example of a Long Table}
+\section{Long Tables}
 
 The following is an example of a table (Table~\ref{tab:full_dude_results}) spanning multiple pages.
 
@@ -266,7 +265,7 @@ The following is an example of a table (Table~\ref{tab:full_dude_results}) spann
 
 \blindtext
 
-\section{An Example of a Landscape Table}
+\section{Landscape Tables}
 Next is an example of a wide table on a landscape oriented paper (Table~\ref{tab:land}).
 
 \begin{landscape}
@@ -293,7 +292,7 @@ Next is an example of a wide table on a landscape oriented paper (Table~\ref{tab
 
 \blindtext
 
-\section{An Example of a Theorem}
+\section{Theorems}
 
 \begin{theorem}
 	Let \(f\) be a function whose derivative exists in every point, then \(f\) is 
@@ -317,7 +316,7 @@ You can reference theorems such as \ref{pythagorean} when a label is assigned.
 
 \blindtext
 
-\section{An Example of a Lemma}
+\section{Lemmas}
 
 \begin{lemma}
 	Given two line segments whose lengths are \(a\) and \(b\) respectively there is a 
@@ -326,7 +325,7 @@ You can reference theorems such as \ref{pythagorean} when a label is assigned.
 
 \blindtext
 
-\section{An Example of a Proof}
+\section{Proofs}
 
 \begin{lemma}
 	Given two line segments whose lengths are \(a\) and \(b\) respectively there 
@@ -340,7 +339,7 @@ You can reference theorems such as \ref{pythagorean} when a label is assigned.
 
 \blindtext
 
-\section{An Example of a Code Listing}
+\section{Code Listings}
 
 Here you go.
 
@@ -378,7 +377,7 @@ Here you go.
 
 \blindtext
 
-\section{An Example of an Algorithm}
+\section{Algorithms}
 
 
 %% This is needed if you want to add comments in
@@ -406,7 +405,7 @@ Here you go.
 
 An algorithm example is shown in Algorithm~\ref{alg:example}. \blindtext
 
-\section{An Example of Suppressing Page Numbers on a Float Page}
+\section{Suppressing Page Numbers on a Float Page}
 
 Kindly refer to Figure~\ref{fig:largegoku}. 
 
@@ -423,9 +422,11 @@ Kindly refer to Figure~\ref{fig:largegoku}.
 \blindtext
 \FloatBarrier % from placeins
 
-\section{An Example of Referencing (In- and Out- Text)}
+\section{Referencing}
 
-In their study, \cite{einsteen} show the world is round. Others have shown this to be the case \cite{Arrighi2003, WithersMartinez2012}.
+Use \texttt{\textbackslash textcite} for in-text citations, e.g.\ \textcite{Einstein1905}, and \texttt{\textbackslash parencite} for citations in parenthesis. 
+
+In their study, \textcite{Einstein1905} show the world is round. Others have shown this to be the case \parencite{Arrighi2003, Ebejer2016}.
 
 \section{Summary}
 \blindtext[5]

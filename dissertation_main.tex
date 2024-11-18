@@ -15,7 +15,6 @@
                                        % must be first thing in class (with the exception of comments)
 \RequirePackage{placeins}		       % To use \FloatBarrier
 
-
 %% There is one option you should define; oneside or twoside
 %% Use twoside for your viva docs (examiners hate long docs they need to carry around)
 %% and oneside for the final thing you submit to the library.  Note that margins will
@@ -122,14 +121,8 @@
 {\backmatter
     % Bibliography
     \if@openright\cleardoublepage\else\clearpage\fi
-	
-	%% for APA
-	%% \bibliographystyle{apacite}
-	%% for plainnat
-    %% \bibliographystyle{um-plainnat} %% specific plainnat does not show url for articles
     % Use something like https://flamingtempura.github.io/bibtex-tidy/ to clean all your bibtex entries
-    \printbibheading
-   \printbibliography
+    \printbibliography[title=References]
 	\printindex
 }
 
