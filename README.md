@@ -21,11 +21,29 @@ I am also keen on keeping an FAQ with the most common LaTeX problems, which you 
 
 # Requirements
 
-For this template you will need the beautiful Lato font for headings and also algorithm typesetting from the science packages.  This sans font creates a pleasing contrast with the serif text.  `lato.sty` can be installed (on Ubuntu) with:
+To build this template you will need `latexmk`, `biber` as a `bibtex` replacement, the beautiful Lato font for headings, and also algorithm typesetting from the science packages.  The Lato sans font using in headings creates a pleasing contrast with the serif text.
+
+The required packages can be installed (on Ubuntu 24.04 LTS) with:
 
 ```
 sudo apt install latexmk biber texlive-fonts-extra texlive-science texlive-bibtex-extra
 ```
+
+# How to build
+
+Well, this is the sort of thing your supervisor would expect you to find out on your own.  However, you can either use a GUI like TexStudio.  Or if you are so inclined, to build your document from the command line (in the directory where `dissertation_main.tex` resides):
+
+```
+latexmk -pdf
+```
+
+This generates a lot of clutter, but it is important to go through it as some warnings can give you valuable insight on stuff to fix for a perfect presentation. To clean all the LaTeX generated files:
+
+```
+latexmk -c
+```
+
+Note that this will leave the generated `pdf` file, as is desirable most of the cases.
 
 ## FAQ
 
@@ -44,21 +62,6 @@ You must, not should!  You should view any written submission as a training oppo
 
 (Let me know if any more changes are required)
 
-### But how do I use (build) this?
-
-Well, this is the sort of thing your supervisor would expect you to find out on your own.  However, you can either use a GUI like ~~TexMaker (this is what I use) or~~ TexStudio.  Or if you are so inclined, to build your document from the command line (in the directory where `dissertation_main.tex` resides):
-
-```
-latexmk -pdf
-```
-
-This generates a lot of clutter, but it is important to go through it as some warnings can give you valuable insight on stuff to fix for a perfect presentation. To clean all the LaTeX generated files:
-
-```
-latexmk -c
-```
-
-Note that this will leave the generated `pdf` file, as is desirable most of the cases.
 
 ### I am a foe of the environment, and don't want to double side print -- how do I fix this?
 

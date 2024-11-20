@@ -37,6 +37,8 @@
 \RequirePackage[pdfusetitle]{hyperref}             % For hyperreferences
 % Use APA style
 \RequirePackage[style=apa,backend=biber]{biblatex} %% style can be "ieee", "chicago-authordate", etc.
+\renewcommand{\UrlFont}{\small\ttfamily}
+
 \RequirePackage{floatpag}			 % Used to hide page number on pages which contain only floats ... put a \thisfloatpagestyle{empty} in the float env, e.g. figure ...
 \RequirePackage{longtable}           % For very long tables
 \RequirePackage{pdflscape}			 % For landscape tables (instead of portrait)
