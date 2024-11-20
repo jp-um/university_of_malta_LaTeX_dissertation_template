@@ -24,8 +24,7 @@ I am also keen on keeping an FAQ with the most common LaTeX problems, which you 
 For this template you will need the beautiful Lato font for headings and also algorithm typesetting from the science packages.  This sans font creates a pleasing contrast with the serif text.  `lato.sty` can be installed (on Ubuntu) with:
 
 ```
-sudo apt install texlive-fonts-extra texlive-science texlive-bibtex-extra biber
-
+sudo apt install latexmk biber texlive-fonts-extra texlive-science texlive-bibtex-extra
 ```
 
 ## FAQ
