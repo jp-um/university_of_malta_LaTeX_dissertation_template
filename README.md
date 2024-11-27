@@ -145,7 +145,7 @@ You can change the whole document to a sans-serif typeface simply by switching c
 %\renewcommand*\familydefault{\sfdefault}    % Use sans serif font as the default
 
 %% OR the following for a serif body and sans serif headings doc
-\RequirePackage{mathpazo}					% Use the Palatino font by default (serif)
+\RequirePackage{mathpazo}                   % Use the Palatino font by default (serif)
 \RequirePackage[defaultsans]{lato}          % Use the Lato font by default for a sans
 ```
 
