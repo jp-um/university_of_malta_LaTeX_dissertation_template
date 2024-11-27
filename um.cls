@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2024/11/27 v2.6 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2024/11/27 v2.7 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
@@ -29,12 +29,12 @@
 \RequirePackage[T1]{fontenc}         		% Output font encoding for international characters
 
 % Use this for an all-lato typeface document
-%\RequirePackage[defaultsans]{lato}          % Use the Lato font by default
-%\renewcommand*\familydefault{\sfdefault}	% Use sans serif font
+%\RequirePackage[defaultsans]{lato}          % Use the Lato font by default (sans)
+%\renewcommand*\familydefault{\sfdefault}    % Use sans serif font as the default
 
 %% OR the following for a serif body and sans serif headings doc
-\RequirePackage{mathpazo}          % Use the Lato font by default
-\RequirePackage[defaultsans]{lato}          % Use the Lato font by default
+\RequirePackage{mathpazo}					% Use the Palatino font by default (serif)
+\RequirePackage[defaultsans]{lato}          % Use the Lato font by default for a sans font
 
 
 \RequirePackage[english]{babel}      % Load babel if you're unsure about the default language - mostly to be safe
