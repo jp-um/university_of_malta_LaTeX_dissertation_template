@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2024/11/18 v2.5 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2024/11/27 v2.6 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
@@ -23,9 +23,20 @@
 
 %% **************** Packages (Start) *********************
 
-\RequirePackage[utf8]{inputenc}      % Required for inputting international characters
-\RequirePackage[T1]{fontenc}         % Output font encoding for international characters
-\RequirePackage{mathpazo}            % Use the Palatino font by default
+\RequirePackage[utf8]{inputenc}      		% Required for inputting international characters
+
+
+\RequirePackage[T1]{fontenc}         		% Output font encoding for international characters
+
+% Use this for an all-lato typeface document
+%\RequirePackage[defaultsans]{lato}          % Use the Lato font by default
+%\renewcommand*\familydefault{\sfdefault}	% Use sans serif font
+
+%% OR the following for a serif body and sans serif headings doc
+\RequirePackage{mathpazo}          % Use the Lato font by default
+\RequirePackage[defaultsans]{lato}          % Use the Lato font by default
+
+
 \RequirePackage[english]{babel}      % Load babel if you're unsure about the default language - mostly to be safe
 \RequirePackage{xcolor}              % For named colors
 \RequirePackage{eso-pic}             % required to place huge uni logo at the back - on title page
@@ -47,11 +58,9 @@
 \usepackage[width=.95\textwidth]{caption} % set the width of the captions
 
 \RequirePackage[ruled]{algorithm2e}		% use algorithm2e instead of algorithm only, as the former is more customizable
-%%\RequirePackage{algpseudocode} 		% do not include this, as algorithm2e will include this as well
 
 \RequirePackage{courier}
 
-\usepackage[defaultsans]{lato}		 % Sans font to use
 \usepackage[printonlyused,withpage]{acronym}
 
 %% ****************** Packages (End) *********************
