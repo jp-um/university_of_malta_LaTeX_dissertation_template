@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2024/11/27 v2.6 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2025/07/04 v2.7 University of Malta, Dissertation/FYP/Thesis Template]
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
@@ -236,8 +236,7 @@
     \sffamily
     {\Huge\bfseries{\begin{Spacing}{1.15}\textcolor{DissertationColor}{\@title}\end{Spacing}}}
     \vspace*{2ex}
-    {\large\textit{\@tagline}}\\[1in]
-    
+    \@ifundefined{@tagline}{\vspace*{3.54cm}}{{\large\textit{\@tagline}}\\[2.54cm]}    
     {\LARGE\bfseries \textsc{\@author}} \\[1cm]
     {\large Supervised by \@supervisor} 
     \@ifundefined{@cosupervisor}{\\[2ex]}{\\[2ex]\large Co-supervised by \@cosupervisor}\\[1cm]
