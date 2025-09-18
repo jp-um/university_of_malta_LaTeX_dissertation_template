@@ -13,8 +13,13 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2025/07/04 v2.7 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2025/09/18 v2.8 University of Malta, Dissertation/FYP/Thesis Template]
 
+% Require LuaLaTeX
+\RequirePackage{iftex}
+\ifLuaTeX\else
+\ClassError{um}{This class requires LuaLaTeX}{Run lualatex instead of pdflatex or xelatex.}
+\fi
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
 \ProcessOptions\relax
@@ -23,45 +28,58 @@
 
 %% **************** Packages (Start) *********************
 
-\RequirePackage[utf8]{inputenc}      		% Required for inputting international characters
+% ===== Fonts (LuaLaTeX) =====
+\RequirePackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX, Scale=MatchLowercase}
+
+% Palatino-like main font
+\setmainfont{TeX Gyre Pagella}
+% Lato sans (works via fontspec if installed by TeX Live)
+\setsansfont{Lato}
+% Monospace
+\setmonofont{Inconsolata}
+
+% ===== Languages =====
+\RequirePackage[english]{babel} % OK with LuaLaTeX;
+\RequirePackage[useregional]{datetime2}  % datetime2 is the modern replacement
+
+% ===== Graphics, color, hyperlinks, bib =====
+\RequirePackage{graphicx}   % no driver option
+\RequirePackage{xcolor}
+\RequirePackage{eso-pic}
 
 
-\RequirePackage[T1]{fontenc}         		% Output font encoding for international characters
+\RequirePackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=MidnightBlue,
+	citecolor=DarkGreen,
+	urlcolor=RoyalBlue
+}
 
-% Use this for an all-lato typeface document
-%\RequirePackage[defaultsans]{lato}          % Use the Lato font by default (sans)
-%\renewcommand*\familydefault{\sfdefault}    % Use sans serif font as the default
+% Biblatex (APA) with biber backend
+\RequirePackage[style=apa,backend=biber]{biblatex}
 
-%% OR the following for a serif body and sans serif headings doc
-\RequirePackage{mathpazo}					% Use the Palatino font by default (serif)
-\RequirePackage[defaultsans]{lato}          % Use the Lato font by default for a sans font
+% ===== Maths, floats, tables, code, algos =====
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{floatpag}
+\RequirePackage{longtable}
+\RequirePackage{pdflscape}
+\RequirePackage{amsthm}     % memoir has its own theorem machinery; this is still OK
+\RequirePackage{listings}
+\RequirePackage[ruled]{algorithm2e}
+\RequirePackage[printonlyused,withpage]{acronym}
 
-
-\RequirePackage[english]{babel}      % Load babel if you're unsure about the default language - mostly to be safe
-\RequirePackage{xcolor}              % For named colors
-\RequirePackage{eso-pic}             % required to place huge uni logo at the back - on title page
-\RequirePackage{datetime}			 % For Current Month and Year (cover page)
-\newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}
-
-\RequirePackage[pdftex]{graphicx}    % For pictures
-\RequirePackage{amssymb}             % At least, for black squares in bullet list
-\RequirePackage[pdfusetitle]{hyperref}             % For hyperreferences
-% Use APA style
-\RequirePackage[style=apa,backend=biber]{biblatex} %% style can be "ieee", "chicago-authordate", etc.
-\renewcommand{\UrlFont}{\small\ttfamily}
-
-\RequirePackage{floatpag}			 % Used to hide page number on pages which contain only floats ... put a \thisfloatpagestyle{empty} in the float env, e.g. figure ...
-\RequirePackage{longtable}           % For very long tables
-\RequirePackage{pdflscape}			 % For landscape tables (instead of portrait)
-\RequirePackage{amsthm}			 % For theorems, proof, lemma
-\RequirePackage{listings}			 % For code listings
-\usepackage[width=.95\textwidth]{caption} % set the width of the captions
-
-\RequirePackage[ruled]{algorithm2e}		% use algorithm2e instead of algorithm only, as the former is more customizable
-
-\RequirePackage{courier}
-
-\usepackage[printonlyused,withpage]{acronym}
+% ===== Memoir-native caption setup (replace the 'caption' package) =====
+% Your original had: \usepackage[width=.95\textwidth]{caption}
+% Use memoir controls instead:
+\captionnamefont{\small\bfseries}
+\captiontitlefont{\small}
+\captiondelim{: }
+\setlength{\abovecaptionskip}{6pt}
+\setlength{\belowcaptionskip}{6pt}
+\captionwidth{0.95\textwidth}
+\captionstyle{\centering} % optional: center multi-line captions
 
 %% ****************** Packages (End) *********************
 
@@ -76,8 +94,6 @@
 % Setup choosen University of Malta crest/logo
 \def\logo{{\includegraphics[width=30mm]{umlogo_crest_red}}}
 
-% The year and term the thesis is submitted 
-\def\degreeDate#1{\gdef\@degreeDate{#1}}
 % The full (unabbreviated) name of the degree
 \def\degreeName#1{\gdef\@degreeName{#1}}
 % The name of your supervisor
@@ -222,6 +238,7 @@
 \AddToShipoutPicture*{\AtPageCenter{%
 \makebox(0,-50){\includegraphics[width=0.5\paperwidth]{#1}}}}}
 
+
 % The front page
 \renewcommand{\maketitle}
 {\begingroup
@@ -233,19 +250,19 @@
 \parbox[b][0.95\textheight][t]{0.8\textwidth}{
     \setlength{\parindent}{0pt}
     %%\fontfamily{pag}\selectfont
-    \sffamily
-    {\Huge\bfseries{\begin{Spacing}{1.15}\textcolor{DissertationColor}{\@title}\end{Spacing}}}
-    \vspace*{2ex}
-    \@ifundefined{@tagline}{\vspace*{3.54cm}}{{\large\textit{\@tagline}}\\[2.54cm]}    
-    {\LARGE\bfseries \textsc{\@author}} \\[1cm]
-    {\large Supervised by \@supervisor} 
-    \@ifundefined{@cosupervisor}{\\[2ex]}{\\[2ex]\large Co-supervised by \@cosupervisor}\\[1cm]
-    {\large \@department} \\[1ex]
-    {\large \@faculty} \\[1ex]
-    {\large University of Malta} \\
-    \vfill
-    {\bfseries \@degreeDate}\\[\baselineskip]
-	\parbox[t]{0.80\linewidth}{\footnotesize\textit{A \@doctype\ submitted in partial fulfilment of the requirements for the degree of \@degreeName}.}    
+	\sffamily
+	{\Huge\bfseries{\begin{Spacing}{1.15}\textcolor{DissertationColor}{\@title}\end{Spacing}}}
+	\vspace*{2ex}
+	\@ifundefined{@tagline}{\vspace*{3.54cm}}{{\large\textit{\@tagline}}\\[2.54cm]}    
+	{\LARGE\bfseries \textsc{\@author}} \\[1cm]
+	{\large Supervised by \@supervisor}
+	\@ifundefined{@cosupervisor}{\\[2ex]}{\\[2ex]\large Co-supervised by \@cosupervisor}\\[1cm]
+	{\large \@department} \\[1ex]
+	{\large \@faculty} \\[1ex]
+	{\large University of Malta} \\
+	\vfill
+	{\bfseries \DTMenglishmonthname{\the\month}, \the\year} \\[\baselineskip]
+	\parbox[t]{0.80\linewidth}{\footnotesize\textit{A \@doctype\ submitted in partial fulfilment of the requirements for the degree of \@degreeName}.} 
 }
 \thispagestyle{empty}
 \if@openright\cleardoublepage\else\clearpage\fi
@@ -275,84 +292,6 @@
    \if@openright\cleardoublepage\else\clearpage\fi
   }       
        
-
-%%\renewenvironment{abstract}
-%%{\begin{alwayssingle} \thispagestyle{empty}
-%%\begin{center}
-%%\vspace*{0.5cm}
-%%{\large \bfseries \textcolor{DissertationColor}{Abstract}}
-%%\end{center}
-%%\singlespacing\enlargethispage{\baselineskip}}
-%%{\end{alwayssingle}}
-
-%%{\cleardoublepage\newgeometry{right=1.3cm,top=2.4cm,bottom=2cm}\pagestyle{empty}\begin{center}\bfseries\large\textcolor{OxfordBlue}\abstractname\end{center}\normalsize\onehalfspacing\begin{quotation}}{\end{quotation}\restoregeometry\cleardoublepage}
-
-
-% STATEMENT OF ORIGINALITY
-%
-% The originality environment puts a large, bold, centered 
-% "Statement of originality" label at the top of the page. The statement 
-% of originality itself appears in a quote environment, i.e. tabbed in at 
-% both sides, and on its own page.
-
-%\newenvironment{originality}
-%{\clearpage
-%\begin{center}
-%\vspace*{1.5cm}
-%{\Large\bfseries\sffamily\textcolor{DissertationColor}{Statement of Originality}\par}
-%\vspace*{1.5cm}
-%{I, the undersigned, declare that this is my own work unless where otherwise acknowledged and referenced. \par}
-%\vspace*{1.5cm}
-%\renewcommand\arraystretch{1.5}
-%\begin{tabular}{ll}
-%      {\bfseries Candidate} & \@author \\[15mm]
-%      {\bfseries Signed} & \makebox[1.5in]{\hrulefill} \\
-%      {\bfseries Date} & \today \\
-%\end{tabular}
-%\end{center}
-%\if@openright\cleardoublepage\else\clearpage\fi}
-
-%% This was updated to the official Statement of Originality (Authentication form)
-
-\newenvironment{originality}
-{\clearpage\thispagestyle{empty}
-\begin{figure}[h]
-	\includegraphics[width=2.5in]{umlogo_full_red}
-\end{figure}
-\vspace{3mm}
-{\noindent\Large\bfseries\sffamily\textcolor{DissertationColor}{Declaration by Postgraduate Students}}\\ %% FIXME this will have to change if not postgraduate ...
-
-{\setlength{\parindent}{0em}
-	
-\textbf{(a) Authenticity of Dissertation}\vspace{3mm}
-
-\noindent I hereby declare that I am the legitimate author of this Dissertation and that it is my original work.
-
-No portion of this work has been submitted in support of an application for another degree or qualification of this or any other university or institution of higher education.
-
-I hold the University of Malta harmless against any third party claims with regard to copyright violation, breach of confidentiality, defamation and any other third party right infringement.\\
-
-\textbf{(b) Research Code of Practice and Ethics Review Procedures}\vspace{3mm}
-
-I declare that I have abided by the University’s Research Ethics Review Procedures.
-
-As a Master’s student, as per Regulation 58 of the General Regulations for University Postgraduate Awards, I accept that should my dissertation be awarded a Grade A, it will be made publicly available on the University of Malta Institutional Repository.}\\[5mm]
-%%\newcolumntype{L}{>{\arraybackslash}m{2.5in}}
-\bgroup
-\def\arraystretch{1.2}%
-\begin{tabular}{lp{3.3in}}
-{\bfseries Faculty/Institute/Centre/School} & \@faculty \\
-{\bfseries Degree} & \@degreeName \\
-{\bfseries Title}  & \begin{hyphenrules}{nohyphenation}\removelinebreaks{\@title}\end{hyphenrules} \\	
-{\bfseries Candidate \@ifundefined{@authorID}{}{(Id.)}} & \@author\ \@ifundefined{@authorID}{}{(\@authorID)} \\[0.7in]	
-{\bfseries Signature of Student} & \makebox[2in]{\hrulefill} \\
-{\bfseries Date} & \today \\
-\end{tabular}
-\mbox{}\vfill
-\egroup
-\noindent 08.02.2018
-\if@openright\cleardoublepage\else\clearpage\fi}
-
 
 
 % COPYRIGHT
@@ -389,3 +328,5 @@ As a Master’s student, as per Regulation 58 of the General Regulations for Uni
 {\endtabularx\par\vspace{\belowdisplayskip}}
 
 %% **************** Environments (End) *******************
+
+\endinput
