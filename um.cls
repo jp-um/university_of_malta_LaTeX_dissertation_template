@@ -37,7 +37,7 @@
 % Lato sans (works via fontspec if installed by TeX Live)
 \setsansfont{Lato}
 % Monospace
-\setmonofont{Inconsolata}
+\setmonofont{Consolas}
 
 % ===== Languages =====
 \RequirePackage[english]{babel} % OK with LuaLaTeX;
@@ -110,7 +110,10 @@
 \def\tagline#1{\gdef\@tagline{#1}}
 % The document type, e.g. a dissertation or a thesis
 \def\doctype#1{\gdef\@doctype{#1}}
+
 \def\authorID#1{\gdef\@authorID{#1}}
+
+\def\submissionDate#1{\gdef\@submissionDate{#1}}
 
 %% ************* UM Definitions (End) ******************
 
@@ -146,7 +149,6 @@
 \lstset{style=mystyle}
 
 \OnehalfSpacing                                  % One and a half line spacing
-
 
 \setlength{\headsep}{1.5cm}                      % Add space between the header and text
 
@@ -261,7 +263,7 @@
 	{\large \@faculty} \\[1ex]
 	{\large University of Malta} \\
 	\vfill
-	{\bfseries \DTMenglishmonthname{\the\month}, \the\year} \\[\baselineskip]
+	{\bfseries \@submissionDate} \\[\baselineskip]
 	\parbox[t]{0.80\linewidth}{\footnotesize\textit{A \@doctype\ submitted in partial fulfilment of the requirements for the degree of \@degreeName}.} 
 }
 \thispagestyle{empty}

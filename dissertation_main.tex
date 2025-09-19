@@ -54,6 +54,7 @@
                                      % note the \ after the dot, so not to consider it a fullstop
 \doctype{dissertation}               % the type of document (fyp, dissertation, thesis)
 %%\subjectcode{ICS5200}              % the study unit-code (currently not used)
+\submissionDate{\DTMenglishmonthname{\the\month}, \the\year}     % The actual (corrected, post-viva) submission month, inc. year, should probably be fixed.
 
 %% ***************** (Your) Data (End) *******************
 
@@ -89,44 +90,46 @@
 
 \begin{document}
 \frontmatter 
-    \maketitle
-    \input{frontmatter/copyright}       
-    %% The originality statement is *NOT* part of the dissertation but submitted separately.
-    \input{frontmatter/dedication}        % include a dedication.tex file
-    \input{frontmatter/acknowledgements}   % include an acknowledgements.tex file
-    \input{frontmatter/abstract}\if@openright\cleardoublepage\else\clearpage\fi
-    \tableofcontents*\if@openright\cleardoublepage\else\clearpage\fi
-    \listoffigures*\if@openright\cleardoublepage\else\clearpage\fi
-    \listoftables*\if@openright\cleardoublepage\else\clearpage\fi
-    \input{frontmatter/abbreviations}\if@openright\cleardoublepage\else\clearpage\fi
+	\maketitle
+	\input{frontmatter/copyright}       
+	%% The originality statement is *NOT* part of the dissertation but submitted separately.
+	\input{frontmatter/dedication}        % include a dedication.tex file
+	\input{frontmatter/acknowledgements}   % include an acknowledgements.tex file
+	\input{frontmatter/abstract}\if@openright\cleardoublepage\else\clearpage\fi
+	\tableofcontents*\if@openright\cleardoublepage\else\clearpage\fi
+	\listoffigures*\if@openright\cleardoublepage\else\clearpage\fi
+	\listoftables*\if@openright\cleardoublepage\else\clearpage\fi
+	\input{frontmatter/abbreviations}\if@openright\cleardoublepage\else\clearpage\fi
 
 %% Note: always use \input as you cannot nest \includes (amongst other things)
 \pagestyle{umpage}
 \floatpagestyle{umpage}
+
 \mainmatter 
+	%%	\part{Your First Part} %% PhDs may require this parts idea as well.
+	\input{chap1/introduction_main} 
+	\input{chap2/background_and_lit_overview_main}
+	\input{chap3/materials_and_methods_main}
+	\input{chap4/results_and_discussion_main}
+	%%	\part{Your Second Part}
+	\input{chap5/evaluation_main}
+	\input{chap6/conclusion_main}
 
-%%	\part{Your First Part} %% PhDs may require this parts idea as well.
-    \input{chap1/introduction_main} 
-    \input{chap2/background_and_lit_overview_main}
-    \input{chap3/materials_and_methods_main}
-    \input{chap4/results_and_discussion_main}
-%%	\part{Your Second Part}
-    \input{chap5/evaluation_main}
-    \input{chap6/conclusion_main}
-    \appendix
-        \input{appA/appendix_a_main}     % these are just test names as I didn't know what you'd want
-        \input{appB/appendix_b_main}    
-        \input{appC/appendix_c_main} 
-
+\appendix
+	\input{appA/appendix_a_main}     % these are just test names as I didn't know what you'd want
+	\input{appB/appendix_b_main}    
+	\input{appC/appendix_c_main}
+		
 \pagestyle{umpageback}
+
 {\backmatter
-    % Bibliography
-    \if@openright\cleardoublepage\else\clearpage\fi
-    % Use something like https://flamingtempura.github.io/bibtex-tidy/ to clean all your bibtex entries
-    \printbibliography[title=References]
+	% Bibliography
+	\if@openright\cleardoublepage\else\clearpage\fi
+	% Use something like https://flamingtempura.github.io/bibtex-tidy/ to clean all your bibtex entries
+	\printbibliography[title=References]
 	\printindex
 }
-
+	
 \end{document}
 
 %%% The End %%%

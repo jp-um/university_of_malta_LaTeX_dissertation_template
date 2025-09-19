@@ -21,13 +21,7 @@ I am also keen on keeping an FAQ with the most common LaTeX problems, which you 
 
 # Requirements
 
-To build this template you will need `latexmk`, `biber` as a `bibtex` replacement, the beautiful Lato font for headings, and also algorithm typesetting from the science packages.  The Lato sans font using in headings creates a pleasing contrast with the serif text.
-
-The required packages can be installed (on Ubuntu 24.04 LTS) with:
-
-```
-sudo apt install latexmk biber texlive-fonts-extra texlive-science texlive-bibtex-extra
-```
+To build this template you will need `latexmk`, `lualatex` (a modern LaTeX engine), `biber` as a `bibtex` replacement, the beautiful Lato font for headings, and also algorithm typesetting from the science packages.  The Lato sans font using in headings creates a pleasing contrast with the serif text. If you require Maltese, you will also need TeX Live 2024 (or later).
 
 # How to build
 
@@ -38,7 +32,7 @@ To build this template into a dissertation you can either use a GUI (like TexStu
 In the directory where `dissertation_main.tex` resides:
 
 ```
-latexmk -pdf
+latexmk -lualatex
 ```
 
 This generates a lot of clutter, but it is important to go through it as some warnings can give you valuable insight on stuff to fix for a perfect presentation. To clean all the LaTeX generated files:
@@ -70,6 +64,15 @@ You should now be able to load the main TEX file (i.e.\ `dissertation_main.tex`)
 
 The following are a few questions which have been asked about this template (sometime multiple times).
 
+
+## Why do you make use of LuaLaTeX (instead of pdfLaTeX)?
+
+* You want multilingual documents (Arabic, Chinese, Maltese, etc.).
+* You need to use system fonts easily.
+* You want future-proof, modern LaTeX with scripting potential.
+* You care about high-quality typography.
+
+This template will not work with pdfLaTeX.
 
 ## What is the difference (if any) between a thesis and a dissertation?
 
