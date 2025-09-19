@@ -137,22 +137,6 @@ Still, should be an easy one, just change the values in the following line in [u
 
 The [Math on Quora](https://math-on-quora.surge.sh/) is all you need. Any math notation you might need is available conveniently in the menu bar. All examples contain live code blocks so you can try out your math formulae directly in the web browser.
 
-
-## How do I change the serif to sans-serif typeface (or vice-versa)?
-
-You can change the whole document to a sans-serif typeface simply by switching commenting in these two code blocks in `um.cls`. The top two lines (below commented out below with `%`) will give you a document using only a sans-serif (Lato) typeface. If you leave this as is, you will get a serif typeface (Palatino) with headings in a sans-serif typeface (for contrast). 
-
-```
-% Use this for an all-lato typeface document
-%\RequirePackage[defaultsans]{lato}          % Use the Lato font by default (sans)
-%\renewcommand*\familydefault{\sfdefault}    % Use sans serif font as the default
-
-%% OR the following for a serif body and sans serif headings doc
-\RequirePackage{mathpazo}                   % Use the Palatino font by default (serif)
-\RequirePackage[defaultsans]{lato}          % Use the Lato font by default for a sans
-```
-
-
 ## How do subgroup my chapters in parts?
 
 Some of the longer documents, such as doctoral dissertations, require a sub-grouping of chapters together. This may be easily achieved with `\part{My First Part}` in the the main document file (e.g. `dissertation_main.tex`) right before the chapters which make up the part (see [example](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/main/dissertation_main.tex)).
