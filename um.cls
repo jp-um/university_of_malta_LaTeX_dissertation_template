@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2025/09/18 v2.8 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2026/05/26 v2.9 University of Malta, Dissertation/FYP/Thesis Template]
 
 % Require LuaLaTeX
 \RequirePackage{iftex}
