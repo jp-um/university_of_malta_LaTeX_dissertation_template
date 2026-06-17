@@ -13,7 +13,7 @@
 %% ****************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{um}[2018/05/01-2026/05/26 v2.9 University of Malta, Dissertation/FYP/Thesis Template]
+\ProvidesClass{um}[2018/05/01-2026/06/17 v3.0 University of Malta, Dissertation/FYP/Thesis Template]
 
 % Require LuaLaTeX
 \RequirePackage{iftex}
@@ -37,7 +37,8 @@
 % Lato sans (works via fontspec if installed by TeX Live)
 \setsansfont{Lato}
 % Monospace
-\setmonofont{Consolas}
+% Scale=MatchLowercase resizes the font to match the height of normal text letters
+\setmonofont{Inconsolata}[Scale=MatchLowercase]
 
 % ===== Languages =====
 \RequirePackage[english]{babel} % OK with LuaLaTeX;
