@@ -4,7 +4,7 @@ Before embarking on this journey, I suggest you read my [LaTeX](https://bitsilla
 
 # University of Malta &ndash; LaTeX Dissertation (or Thesis) Template
 
-Let us not waste any time, you have a project to write up!  [Here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/dissertation_main.pdf) is a complete example (PDF format) of what this LaTeX template looks like.  Or quicker...
+Let us not waste any time, you have a project to write up! [Here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/dissertation_main.pdf) is a complete example (PDF format) of what this LaTeX template looks like.  Or quicker...
 
 <img src="images/pg1.png" width="400"><img src="images/pg2.png" width="400">
 <img src="images/pg3.png" width="400"><img src="images/pg4.png" width="400">
@@ -64,7 +64,6 @@ You should now be able to load the main TEX file (i.e.\ `dissertation_main.tex`)
 
 The following are a few questions which have been asked about this template (sometime multiple times).
 
-
 ## Why do you make use of LuaLaTeX (instead of pdfLaTeX)?
 
 * You want multilingual documents (Arabic, Chinese, Maltese, etc.).
@@ -80,26 +79,41 @@ This template will not work with pdfLaTeX.
 
 Bet you didn't know this one bit of academic trivia!  (Note: The answer is specific to the University of Malta, answer given by our dear registrar, Ms Veronica Grech).
 
+## Is the postgradute declarations/authenticity form part of the dissertation?
+
+No. The authenticity form is not part of the dissertation itself, and should not be bound, merged, stapled, spiritually attached, or otherwise smuggled into the document.
+
+It is a separate administrative form which you submit alongside the dissertation, according to the current University of Malta submission instructions. In other words, your dissertation should look like a dissertation, not like it accidentally swallowed a form.
+
+The latest version of the postgraduate authenticity form is available from the [University of Malta website](https://www.um.edu.mt/media/um/docs/directorates/registrar/policiesproceduresguidelinesandforms/forms/dissertationsubmissionall/Authenticityformwithoutstudentdetails(Postgraduate)-English.pdf).
+
+## Is ethics approval part of the dissertation?
+
+No. Ethics approval is *not* part of the dissertation document itself.
+
+If your work required ethics approval, mention it clearly where appropriate, for example in the methodology section. The ethics approval number is also required in Section B of the postgraduate declaration/authenticity form (see link in above entry).
+
+## What comes first: appendices or references/bibliography?
+
+There is no single universal standard for this, so do check any Faculty, Department, or supervisor-specific requirements.
+
+In this template, the **appendices come before the references/bibliography**. This is intentional: appendices may themselves contain material that needs to be cited, so the references/bibliography come at the very end and get to clean up after everyone.
 
 ## Which referencing style does this template use?
 
 The template uses the APA referencing style, although it is pretty easy to change to IEEE or Harvard (or anything else for the matter).  The template uses the BibLaTeX package.
 
-
 ## For references, which is better (42) or (Ebejer et al., 2024)?
 
 Many computational scientists are used to the IEEE referencing style with numbers, i.e. `(42)`.  But there is a reason why author year citations, or similar, are superior.  Your examiners (and supervisors) will be well acquainted with the research area and will know which are the main papers you should have read (and cited).  If you use numbered referencing, the examiner has to keep cross-referencing the *References* section.  This is not the case when using the name of the author and year directly in the citation.  Moreover, it is easier for the examiner to realize when you are mis-citing an author.  Modern typesetting is moving in this direction.
-
 
 ## How do I set the document for double-sided printing?
 
 By default the template uses one-sided printing settings as most submissions are electronic nowadays. If you want to change that, simply pass `twoside` as an option to the document class (as opposed to `oneside`) in `dissertation_main.tex`.
 
-
 ## How do I make continuous footnote numbers?
 
 The default in books is for footnote numbers to restart at each chapter (like figures or equations). If you do not want this behaviour, and require continuous numbering for your footnotes add `\counterwithout{footnote}{chapter}` to the preamble in `dissertation_main.tex`.
-
 
 ## May I use this template for my assignment?  What changes do I need?
 
@@ -110,16 +124,13 @@ You must, not should!  You should view any written submission as a training oppo
 
 (Let me know if any more changes are required)
 
-
 ## Why are there so many blank pages?
 
 Blank pages are only generated with the `twoside` option.  This is because typesetters don't start new chapters (and abstracts/acknowledgements/etc.) on the *verso* side (left in the western-world) when using both sides of the paper.  Chapters start on the *recto* side (right), so an empty page is inserted if the chapter start falls on the *verso* side (left).  The `oneside` option clearly has no empty pages (or has blank pages at the back of each paper, so every *verso* page is empty).  Note that the page margins are different for the *recto* and *verso* sides in the `twoside` option, this is because of the spline (which is on the right for *verso* and left for *recto*). I hope this is clear, I am an amateur typesetter.
 
-
 ## My supervisor(s) says section X should be named Y.  What should I do?
 
 It is always counter-productive to **not** listen to your supervisor.  This is a generic template, and your specific use-case may have different requirements.  For example, in some departments it is common to have a "Methodology" section instead of the (more experimental) "Materials & Methods".  Elsewhere, the "Evaluation" section is sometimes merged in the "Results and Discussion" chapter.  Some faculties require a standard cover page.  This template is very flexible, and any changes are easy/trivial to make.  The important thing is to use good judgement and that **you follow your supervisor's advice**.
-
 
 ## How do I change the one-and-a-half to double line spacing?
 
