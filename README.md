@@ -152,8 +152,18 @@ The [Math on Quora](https://math-on-quora.surge.sh/) is all you need. Any math n
 
 Some of the longer documents, such as doctoral dissertations, require a sub-grouping of chapters together. This may be easily achieved with `\part{My First Part}` in the the main document file (e.g. `dissertation_main.tex`) right before the chapters which make up the part (see [example](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/main/dissertation_main.tex)).
 
-
 ## I have a huge figure which takes up all the page.  I would like to switch off headers and the bottom page numbers, but `\thispagestyle{empty}` does nothing (or changes some other page).
 
 The template uses the `floatpag` package.  All you need to do is place a `\thisfloatpagestyle{empty}` inside the figure or table environment.  Et voilà!  There is an example of this [here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/aa35454ad53fc4114d7798c8f3b442f59bc9cabb/chap3/materials_and_methods_main.tex#L415).
+
+## Is there an Overleaf version of this template available?
+
+Yes, there is an Overleaf version available which you can access [here](https://www.overleaf.com/latex/templates/msc-or-phd-dissertation-template-originally-for-the-university-of-malta/xhnmbpvkmmqp). 
+
+However, you should keep two major caveats in mind before relying on it:
+
+* **Compilation Limits:** Because this template requires `LuaLaTeX` and resource-heavy packages, free Overleaf accounts very frequently hit compilation timeout and file limits. As your thesis grows, it is highly likely it will stop compiling on the platform altogether. 
+* **Outdated Version:** The template hosted on Overleaf may be significantly outdated compared to this GitHub repository. This is because updating and managing templates on Overleaf often requires a paid Overleaf subscription. Therefore, all the latest bug fixes, font updates, and formatting tweaks are maintained and pushed exclusively here on GitHub.
+
+For a reliable and up-to-date workflow, it is strongly recommended to download or clone this repository and compile it locally using `latexmk` as described in the setup section.
 
