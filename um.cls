@@ -104,6 +104,33 @@
 \RequirePackage{amsthm}
 \RequirePackage{floatpag}
 \RequirePackage{longtable}
+% Running heads on pages made by a long table: from LaTeX 2025-06-01 the
+% running heads use LaTeX's new mark mechanism, which longtable before v4.24
+% does not update, so the running head on those pages can name an earlier
+% section (https://github.com/latex3/latex2e/issues/1814). The fix (v4.24)
+% needs finite glue after the table foot (v4.25, issue 1907), otherwise
+% newer expl3 stops with "Infinite glue shrinkage found in box being split".
+% With LaTeX 2025-06-01 or later, apply whichever part of these two upstream
+% fixes the loaded longtable lacks.
+\IfFormatAtLeastTF{2025-06-01}{%
+  \RequirePackage{etoolbox}%
+  \@ifpackagelater{longtable}{2025/12/23}{}{% v4.25: finite glue after the foot
+    \patchcmd{\LT@output}{\copy\LT@foot\vss}%
+      {\copy\LT@foot\vskip\z@\@plus1fil\@minus\normalbaselineskip}{}%
+      {\ClassWarningNoLine{um}{Could not patch longtable (foot glue)}}%
+    \patchcmd{\LT@output}{\copy\LT@foot\vss}%
+      {\copy\LT@foot\vskip\z@\@plus1fil\@minus\normalbaselineskip}{}%
+      {\ClassWarningNoLine{um}{Could not patch longtable (foot glue)}}%
+  }%
+  \@ifpackagelater{longtable}{2025/10/13}{}{% v4.24: update the page marks
+    \patchcmd{\LT@output}{\@makecol\@outputpage}%
+      {\@makecol\@expl@@@mark@update@singlecol@structures@@\@outputpage}{}%
+      {\ClassWarningNoLine{um}{Could not patch longtable (running heads)}}%
+    \patchcmd{\LT@output}{\@makecol\@outputpage}%
+      {\@makecol\@expl@@@mark@update@singlecol@structures@@\@outputpage}{}%
+      {\ClassWarningNoLine{um}{Could not patch longtable (running heads)}}%
+  }%
+}{}
 \RequirePackage{pdflscape}
 \RequirePackage{listings}
 \RequirePackage[ruled]{algorithm2e}
