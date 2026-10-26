@@ -1,73 +1,89 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-%% The updated version of this document should be downloaded from
-%%      https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template
+%% The latest version of this template can be downloaded from
+%%   https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template
 %%
-%% In case of any difficulties please contact Prof. JP Ebejer on jean.p.ebejer@um.edu.mt
+%% In case of any difficulties please contact Prof. JP Ebejer
+%% on jean.p.ebejer@um.edu.mt
 %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Before you embark on this quest you should probably read some of:
-%% Deadly sins - http://mirrors.ctan.org/info/l2tabu/english/l2tabuen.pdf
-%% Writing a thesis in LaTeX - http://tug.org/pracjourn/2008-1/mori/mori.pdf
+%%   Deadly sins - http://mirrors.ctan.org/info/l2tabu/english/l2tabuen.pdf
+%%   Writing a thesis in LaTeX - http://tug.org/pracjourn/2008-1/mori/mori.pdf
 
-\RequirePackage[l2tabu, orthodox]{nag} % tells you of any bad LaTeX usage
-                                       % must be first thing in class (with the exception of comments)
-\RequirePackage{placeins}		       % To use \FloatBarrier
+% nag warns you of any bad LaTeX usage; it must be loaded before \documentclass
+\RequirePackage[l2tabu, orthodox]{nag}
+\RequirePackage{placeins} % provides \FloatBarrier
 
-%% There is one option you should define; oneside or twoside.
-%% By default all electronic submissions should be `oneside`
-%% Use twoside for printing (e.g. the supervisor's customary copy)
-%% Note that margins will change accordingly and automatically
-\documentclass[oneside]{um}  % custom University of Malta project/dissertation/thesis 
+%% Document class options:
+%%   oneside   - for electronic submissions (the default you should use)
+%%   twoside   - for printing (e.g. the supervisor's customary copy);
+%%               margins change accordingly and automatically
+%%   oldcover  - use the original template cover instead of the official
+%%               University of Malta cover, e.g. \documentclass[oneside,oldcover]{um}
+\documentclass[oneside]{um} % University of Malta project/dissertation/thesis
 
-%% \counterwithout{footnote}{chapter} % use this to have continuous numbering for your footnotes (that do not reset per chapter)
-
-%% **************** (Your) Packages (Start) ******************
-
-% \listfiles % uncomment this to know which packages you are using
-              % the list of packages will be in the bottom of the .log file
-
-%% Note that packges may already be loaded from the um (and memoir) classes.
-%% Do not add your packages to the template, but rather add them here.
-
-\usepackage{blindtext} %% for some dummy text, remove in your writeup
-\usepackage{coffee4}    %% for some fun
-
-%% ***************** (Your) Packages (End) *******************
+% Uncomment for continuous footnote numbering (not reset in every chapter)
+% \counterwithout{footnote}{chapter}
 
 
-%% **************** (Your) Data (Start) ******************
+%% ===================================================================
+%% Your packages
+%% ===================================================================
 
-\title{Machine Learning\\Approaches to the\\Blockchain}  % use \\ here otherwise you get a justified title
-                                     % note capitalization of the title (only common 
-                                     % words in lower case)
-\tagline{some hyped-up tagline}      % tag line *OPTIONAL* 
-\author{Jean-Paul Ebejer}            % your full name
-\authorID{123456M}                   % your University Identifier
-\supervisor{Prof.\ Dumbledore}           % your supervisor(s) name
-\cosupervisor{Dr Who}                % your cosupervisor(s) name - no . in Dr *OPTIONAL* 
-                                     % simply comment out the above line if absent
-\department{Department of Alchemy}   % your department (e.g. Artificial Intelligence)
-\faculty{Faculty of Something}       % your faculty (e.g. ICT)
-\degreeName{M.Sc.\ in Your Degree}       % the degree you are reading
-                                     % note the \ after the dot, so not to consider it a fullstop
-\doctype{dissertation}               % the type of document (fyp, dissertation, thesis)
-%%\subjectcode{ICS5200}              % the study unit-code (currently not used)
-\submissionDate{\DTMenglishmonthname{\the\month}, \the\year}     % The actual (corrected, post-viva) submission month, inc. year, should probably be fixed.
+% Uncomment to list the packages you are using at the end of the .log file
+% \listfiles
 
-%% ***************** (Your) Data (End) *******************
+% Many packages are already loaded by the um (and memoir) classes.
+% Do not add your packages to the class, but rather add them here.
 
-%%
+\usepackage{blindtext} % dummy text, remove in your write-up
+% blindtext knows `english' but not `british' (it uses English text either
+% way); this stops a warning for every \blindtext
+\expandafter\def\csname blindtext@british\endcsname{}
+\usepackage{coffee4}   % for some fun
+
+
+%% ===================================================================
+%% Your data
+%% ===================================================================
+
+% Use \\ in the title to choose where it breaks; aim for two lines of
+% similar length. Capitalise the title (only common words in lower case).
+\title{Machine Learning Approaches\\to the Blockchain}
+\tagline{some hyped-up tagline}           % subtitle, optional
+\author{Jean-Paul Ebejer}                 % your full name
+\authorID{123456M}                        % your University identifier
+\supervisor{Prof.\ Dumbledore}            % your supervisor(s)
+\cosupervisor{Dr Who}                     % your co-supervisor(s), optional;
+                                          % comment out this line if absent
+                                          % (no full stop after Dr)
+\department{Department of Alchemy}        % e.g. Artificial Intelligence
+\faculty{Faculty of Something}            % e.g. Faculty of ICT
+\degreeName{M.Sc.\ in Your Degree}        % the degree you are reading; the \
+                                          % after the dot stops it being read
+                                          % as a full stop
+\doctype{dissertation}                    % fyp, dissertation or thesis
+% \subjectcode{ICS5200}                   % study-unit code (currently not used)
+
+% The actual (corrected, post-viva) submission month and year;
+% you should probably fix this rather than use the current date.
+\submissionDate{\DTMenglishmonthname{\the\month} \the\year}
+
+
+%% ===================================================================
+%% Your document settings
+%% ===================================================================
+
+% No extra space above chapter headings
 \renewcommand{\chapterheadstart}{\vspace*{\beforechapskip}}
-\setlength\beforechapskip{0mm}
+\setlength{\beforechapskip}{0mm}
 
-
-%% ******** (Your) Document Settings (Start) *************
-
-% You should have an images directory in every chapX subdir
-% NOTE:  Trailing / for subdirs is required.
-\graphicspath{{./images/}{./chap1/images/}{./chap2/images/}}   % Paths where to look for images, if defined "images" must always be there as it holds the images in-use by the template.
+% Where to look for images. You should have an images directory in every
+% chapX directory. The trailing / is required, and ./images/ must always
+% be listed as it holds the images used by the template.
+\graphicspath{{./images/}{./chap1/images/}{./chap2/images/}}
 
 \makeindex
 
@@ -75,61 +91,60 @@
 \addbibresource{chap2/background_and_lit_review_biblio.bib}
 \addbibresource{chap3/materials_and_methods_biblio.bib}
 
-
-%% ********* (Your) Document Settings (End) **************
-
 % DOCTOR'S (JP) ORDERS: MAKE SURE TO READ MY TWO BLOG ENTRIES WITH
-% CONTENT AND LaTeX TIPS FOR YOUR WRITE-UP.  THESE ARE BASED ON  
-% EXAMINER'S FEEDBACK
-%
-% URLS:
-% https://bitsilla.com/blog/2019/03/content-tips-for-your-dissertation-or-project-write-up/
-% https://bitsilla.com/blog/2019/01/latex-tips-for-your-dissertation-or-project-write-up/
+% CONTENT AND LaTeX TIPS FOR YOUR WRITE-UP. THESE ARE BASED ON
+% EXAMINERS' FEEDBACK.
+%   https://bitsilla.com/blog/2019/03/content-tips-for-your-dissertation-or-project-write-up/
+%   https://bitsilla.com/blog/2019/01/latex-tips-for-your-dissertation-or-project-write-up/
 
-% end the preamble and start the document
+
+%% ===================================================================
+%% The document
+%% ===================================================================
 
 \begin{document}
-\frontmatter 
-	\maketitle
-	\input{frontmatter/copyright}       
-	%% The originality statement is *NOT* part of the dissertation but submitted separately.
-	\input{frontmatter/dedication}        % include a dedication.tex file
-	\input{frontmatter/acknowledgements}   % include an acknowledgements.tex file
-	\input{frontmatter/abstract}\if@openright\cleardoublepage\else\clearpage\fi
-	\tableofcontents*\if@openright\cleardoublepage\else\clearpage\fi
-	\listoffigures*\if@openright\cleardoublepage\else\clearpage\fi
-	\listoftables*\if@openright\cleardoublepage\else\clearpage\fi
-	\input{frontmatter/abbreviations}\if@openright\cleardoublepage\else\clearpage\fi
 
-%% Note: always use \input as you cannot nest \includes (amongst other things)
+\frontmatter
+  \maketitle
+  \input{frontmatter/copyright}
+  % The originality statement is *NOT* part of the dissertation,
+  % it is submitted separately.
+  \input{frontmatter/dedication}
+  \input{frontmatter/acknowledgements}
+  \input{frontmatter/abstract}\cleardoublepage
+  \tableofcontents*\cleardoublepage
+  \listoffigures*\cleardoublepage
+  \listoftables*\cleardoublepage
+  \input{frontmatter/abbreviations}\cleardoublepage
+
+% Always use \input, as \include cannot be nested (amongst other things)
 \pagestyle{umpage}
 \floatpagestyle{umpage}
 
-\mainmatter 
-	%%	\part{Your First Part} %% PhDs may require this parts idea as well.
-	\input{chap1/introduction_main} 
-	\input{chap2/background_and_lit_review_main}
-	\input{chap3/materials_and_methods_main}
-	\input{chap4/results_and_discussion_main}
-	%%	\part{Your Second Part}
-	\input{chap5/evaluation_main}
-	\input{chap6/conclusion_main}
+\mainmatter
+  % \part{Your First Part} % PhDs may require parts as well
+  \input{chap1/introduction_main}
+  \input{chap2/background_and_lit_review_main}
+  \input{chap3/materials_and_methods_main}
+  \input{chap4/results_and_discussion_main}
+  % \part{Your Second Part}
+  \input{chap5/evaluation_main}
+  \input{chap6/conclusion_main}
 
 \appendix
-	\input{appA/appendix_a_main}     % these are just test names as I didn't know what you'd want
-	\input{appB/appendix_b_main}    
-	\input{appC/appendix_c_main}
-		
+  % rename these to suit your appendices
+  \input{appA/appendix_a_main}
+  \input{appB/appendix_b_main}
+  \input{appC/appendix_c_main}
+
 \pagestyle{umpageback}
 
 {\backmatter
-	% Bibliography
-	\if@openright\cleardoublepage\else\clearpage\fi
-	% Use something like https://flamingtempura.github.io/bibtex-tidy/ to clean all your bibtex entries
-	\printbibliography[title=References]
-	\printindex
+  \cleardoublepage
+  % Use something like https://flamingtempura.github.io/bibtex-tidy/
+  % to clean all your BibTeX entries
+  \printbibliography[title=References]
+  \printindex
 }
-	
-\end{document}
 
-%%% The End %%%
+\end{document}

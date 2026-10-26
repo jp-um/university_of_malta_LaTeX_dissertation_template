@@ -1,10 +1,11 @@
-%% will only print what is used ... useful.
-%% also acronyms are clickable, which is awesome
+% Only the acronyms actually used in the text are printed, and each one is
+% a clickable link to its entry in this list.
 
-\chapter{List of Abbreviations} %% \chapter*{List of Abbreviations} not to appear in LoC
+\chapter{List of Abbreviations} % use \chapter* to leave it out of the ToC
 \markboth{List of Abbreviations}{List of Abbreviations}
-               
-\begin{acronym}\itemsep-20pt\parsep-20pt %% if you remove these spacing params this list becomes huge!
+
+% the negative \itemsep and \parsep keep the list compact
+\begin{acronym}\itemsep-20pt\parsep-20pt
 \acro{CDMA}{Code Division Multiple Access}
 \acro{GSM}{Global System for Mobile communication}
 \acro{NAD+}[NAD\textsuperscript{+}]{Nicotinamide Adenine Dinucleotide}
@@ -15,5 +16,5 @@
 \acro{lh2}[\ensuremath{LH_2}]{Liquid Hydrogen}
 \acro{IC}{Integrated Circuit}
 \acro{BUT}{Block Under Test}
-\acrodefplural{BUT}{Blocks Under Test}    
+\acrodefplural{BUT}{Blocks Under Test}
 \end{acronym}

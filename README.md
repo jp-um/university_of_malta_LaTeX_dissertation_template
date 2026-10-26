@@ -111,6 +111,12 @@ Many computational scientists are used to the IEEE referencing style with number
 
 By default the template uses one-sided printing settings as most submissions are electronic nowadays. If you want to change that, simply pass `twoside` as an option to the document class (as opposed to `oneside`) in `dissertation_main.tex`.
 
+## Which cover page does the template use?
+
+By default the cover page follows the University of Malta's official dissertation cover layout (centred, Lato, full University logo).  It is built from the `\title`, `\tagline`, `\author`, `\supervisor`, `\cosupervisor`, `\faculty`, `\department`, `\submissionDate`, `\doctype` and `\degreeName` you fill in at the top of `dissertation_main.tex`; the tagline and co-supervisor are optional.  Use `\\` in `\title` to choose where the (centred) title breaks.
+
+If you prefer the template's original cover (red bar and crest), pass `oldcover` as an option to the document class, e.g. `\documentclass[oneside,oldcover]{um}`.
+
 ## How do I make continuous footnote numbers?
 
 The default in books is for footnote numbers to restart at each chapter (like figures or equations). If you do not want this behaviour, and require continuous numbering for your footnotes add `\counterwithout{footnote}{chapter}` to the preamble in `dissertation_main.tex`.
