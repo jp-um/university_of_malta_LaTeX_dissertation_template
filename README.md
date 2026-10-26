@@ -59,10 +59,12 @@ Additionally, under `Options -> Configure TeXstudio` select `Commands` and set t
 
 You should now be able to load the main TEX file (i.e.\ `dissertation_main.tex`) and select `Tools -> Build & View` (or press the F5 shortcut).  Voilà (but do get in touch via the Issues page or email if you cannot sort this out).
 
+Note that F5 does not build the index; see [My index is missing, or page numbers and headers look wrong](#my-index-is-missing-or-page-numbers-and-headers-look-wrong-why) below.
+
 
 # FAQ
 
-The following are a few questions which have been asked about this template (sometime multiple times).
+The following are a few questions which have been asked about this template (sometimes multiple times).
 
 ## Why do you make use of LuaLaTeX (instead of pdfLaTeX)?
 
@@ -73,13 +75,30 @@ The following are a few questions which have been asked about this template (som
 
 This template will not work with pdfLaTeX.
 
+## My index is missing, or page numbers and headers look wrong. Why?
+
+A complete build needs several passes: `lualatex`, then `biber` (references), then `makeindex` (index), then `lualatex` again (sometimes more than once) until page numbers, cross-references and running headers stop changing.  If a step is skipped the PDF looks *almost* right, which is why this is easy to miss: the index disappears, or a page number or header is out of date.
+
+The easiest fix is to let `latexmk` do it all.  In the directory where `dissertation_main.tex` resides:
+
+```
+latexmk -lualatex
+```
+
+`latexmk` works out which tools to run, in which order and how many times, and stops once everything has settled (running it again with nothing changed just reports that the PDF is up to date).  To rebuild from scratch, run `latexmk -C` first (note the capital `C`: this also deletes the PDF).
+
+TeXstudio's F5 (*Build & View*) runs LuaLaTeX and Biber, but **not** `makeindex`, so the index is left out.  Either run `Tools -> Index` and press F5 again, or let F5 use `latexmk`:
+
+1. Under `Options -> Configure TeXstudio` select `Commands` and set the `Latexmk` text field to `latexmk -lualatex -synctex=1 %`.
+2. Under `Build` set the `Default Compiler` to `Latexmk`.
+
 ## What is the difference (if any) between a thesis and a dissertation?
 
 > University of Malta regulations specify a thesis only in case of PhD, and SThD degrees.  In all other cases it is a dissertation.
 
 Bet you didn't know this one bit of academic trivia!  (Note: The answer is specific to the University of Malta, answer given by our dear registrar, Ms Veronica Grech).
 
-## Is the postgradute declarations/authenticity form part of the dissertation?
+## Is the postgraduate declaration/authenticity form part of the dissertation?
 
 No. The authenticity form is not part of the dissertation itself, and should not be bound, merged, stapled, spiritually attached, or otherwise smuggled into the document.
 
@@ -101,11 +120,11 @@ In this template, the **appendices come before the references/bibliography**. Th
 
 ## Which referencing style does this template use?
 
-The template uses the APA referencing style, although it is pretty easy to change to IEEE or Harvard (or anything else for the matter).  The template uses the BibLaTeX package.
+The template uses the APA referencing style, although it is pretty easy to change to IEEE or Harvard (or anything else for that matter).  The template uses the BibLaTeX package.
 
 ## For references, which is better (42) or (Ebejer et al., 2024)?
 
-Many computational scientists are used to the IEEE referencing style with numbers, i.e. `(42)`.  But there is a reason why author year citations, or similar, are superior.  Your examiners (and supervisors) will be well acquainted with the research area and will know which are the main papers you should have read (and cited).  If you use numbered referencing, the examiner has to keep cross-referencing the *References* section.  This is not the case when using the name of the author and year directly in the citation.  Moreover, it is easier for the examiner to realize when you are mis-citing an author.  Modern typesetting is moving in this direction.
+Many computational scientists are used to the IEEE referencing style with numbers, i.e. `(42)`.  But there is a reason why author year citations, or similar, are superior.  Your examiners (and supervisors) will be well acquainted with the research area and will know which are the main papers you should have read (and cited).  If you use numbered referencing, the examiner has to keep cross-referencing the *References* section.  This is not the case when using the name of the author and year directly in the citation.  Moreover, it is easier for the examiner to realise when you are mis-citing an author.  Modern typesetting is moving in this direction.
 
 ## How do I set the document for double-sided printing?
 
@@ -127,42 +146,46 @@ The default in books is for footnote numbers to restart at each chapter (like fi
 
 You must, not should!  You should view any written submission as a training opportunity for your final dissertation.  Getting familiar with the template will help you out later in the course.  Of course, some (very) minor changes to the template are required; as follows:
 
-- From `dissertation_main.tex` comment out (`%`) frontmatter sections for originality, dedication, acknowledgements, and abstract (these would look silly in an assignment).  
+- From `dissertation_main.tex` comment out (`%`) the front matter for the copyright page, dedication, acknowledgements, and abstract (these would look silly in an assignment).
 - Also, from the same file `dissertation_main.tex` comment out all the appendix material (unless you actually have an appendix; unlikely)
 
 (Let me know if any more changes are required)
 
 ## Why are there so many blank pages?
 
-Blank pages are only generated with the `twoside` option.  This is because typesetters don't start new chapters (and abstracts/acknowledgements/etc.) on the *verso* side (left in the western-world) when using both sides of the paper.  Chapters start on the *recto* side (right), so an empty page is inserted if the chapter start falls on the *verso* side (left).  The `oneside` option clearly has no empty pages (or has blank pages at the back of each paper, so every *verso* page is empty).  Note that the page margins are different for the *recto* and *verso* sides in the `twoside` option, this is because of the spline (which is on the right for *verso* and left for *recto*). I hope this is clear, I am an amateur typesetter.
+Blank pages are only generated with the `twoside` option.  This is because typesetters don't start new chapters (and abstracts/acknowledgements/etc.) on the *verso* side (left in the western-world) when using both sides of the paper.  Chapters start on the *recto* side (right), so an empty page is inserted if the chapter start falls on the *verso* side (left).  The `oneside` option clearly has no empty pages (or has blank pages at the back of each paper, so every *verso* page is empty).  Note that the page margins are different for the *recto* and *verso* sides in the `twoside` option, this is because of the spine (which is on the right for *verso* and left for *recto*). I hope this is clear, I am an amateur typesetter.
 
 ## My supervisor(s) says section X should be named Y.  What should I do?
 
-It is always counter-productive to **not** listen to your supervisor.  This is a generic template, and your specific use-case may have different requirements.  For example, in some departments it is common to have a "Methodology" section instead of the (more experimental) "Materials & Methods".  Elsewhere, the "Evaluation" section is sometimes merged in the "Results and Discussion" chapter.  Some faculties require a standard cover page.  This template is very flexible, and any changes are easy/trivial to make.  The important thing is to use good judgement and that **you follow your supervisor's advice**.
+It is always counter-productive to **not** listen to your supervisor.  This is a generic template, and your specific use-case may have different requirements.  For example, in some departments it is common to have a "Methodology" section instead of the (more experimental) "Materials & Methods".  Elsewhere, the "Evaluation" section is sometimes merged in the "Results and Discussion" chapter.  Some faculties require a standard cover page (the template uses the official University of Malta cover by default, see above).  This template is very flexible, and any changes are easy/trivial to make.  The important thing is to use good judgement and that **you follow your supervisor's advice**.
 
 ## How do I change the one-and-a-half to double line spacing?
 
-In my opinion you don't want to do this because the document is going to become very long. The idea of having double line spacing is to let examiners/supervisors write between the lines. This is not required for the final submission and mostly superceded by more modern word-processing and reviewing tools. Also, the current one and a half line spacing gives enough space for this.
+In my opinion you don't want to do this because the document is going to become very long. The idea of having double line spacing is to let examiners/supervisors write between the lines. This is not required for the final submission and mostly superseded by more modern word-processing and reviewing tools. Also, the current one and a half line spacing gives enough space for this.
 
-If you want to go ahead anyway with this, change this line in [um.cls](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/aa35454ad53fc4114d7798c8f3b442f59bc9cabb/um.cls#L123) from `\OnehalfSpacing` to `\DoubleSpacing`.
+If you want to go ahead anyway with this, change `\OnehalfSpacing` to `\DoubleSpacing` in [um.cls](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/main/um.cls) (in the *Spacing* settings).
 
 ## How do I change the document margins?
 
-Also required in ancient times to write notes in the margin (and again superceded by modern word-processing and reviewing tools).
+Also required in ancient times to write notes in the margin (and again superseded by modern word-processing and reviewing tools).
 
-Still, should be an easy one, just change the values in the following line in [um.cls](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/aa35454ad53fc4114d7798c8f3b442f59bc9cabb/um.cls#L148).
+Still, should be an easy one, just change the values (left and right margins) in this line in [um.cls](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/main/um.cls):
 
-## How do I write good Latex Mathematical Notation/Formulae?
+```latex
+\setlrmarginsandblock{3.7cm}{2.5cm}{*}  % page margins (one- and two-sided)
+```
 
-The [Math on Quora](https://math-on-quora.surge.sh/) is all you need. Any math notation you might need is available conveniently in the menu bar. All examples contain live code blocks so you can try out your math formulae directly in the web browser.
+## How do I write good LaTeX mathematical notation/formulae?
 
-## How do subgroup my chapters in parts?
+The [Math on Quora](https://math-on-quora.surge.sh/) is all you need. Any math notation you might need is available conveniently in the menu bar. All examples contain live code blocks so you can try out your math formulae directly in the web browser.  Overleaf's guide to [mathematical expressions](https://www.overleaf.com/learn/latex/Mathematical_expressions) is another good reference.
 
-Some of the longer documents, such as doctoral dissertations, require a sub-grouping of chapters together. This may be easily achieved with `\part{My First Part}` in the the main document file (e.g. `dissertation_main.tex`) right before the chapters which make up the part (see [example](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/main/dissertation_main.tex)).
+## How do I group my chapters into parts?
+
+Some of the longer documents, such as doctoral dissertations, require a sub-grouping of chapters together. This may be easily achieved with `\part{My First Part}` in the main document file (e.g. `dissertation_main.tex`) right before the chapters which make up the part (see [example](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/main/dissertation_main.tex)).
 
 ## I have a huge figure which takes up all the page.  I would like to switch off headers and the bottom page numbers, but `\thispagestyle{empty}` does nothing (or changes some other page).
 
-The template uses the `floatpag` package.  All you need to do is place a `\thisfloatpagestyle{empty}` inside the figure or table environment.  Et voilà!  There is an example of this [here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/aa35454ad53fc4114d7798c8f3b442f59bc9cabb/chap3/materials_and_methods_main.tex#L415).
+The template uses the `floatpag` package.  All you need to do is place a `\thisfloatpagestyle{empty}` inside the figure or table environment.  Et voilà!  There is an example of this in the *Suppressing Page Numbers on a Float Page* section of [chap3/materials_and_methods_main.tex](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/main/chap3/materials_and_methods_main.tex).
 
 ## Is there an Overleaf version of this template available?
 
@@ -173,5 +196,5 @@ However, you should keep two major caveats in mind before relying on it:
 * **Compilation Limits:** Because this template requires `LuaLaTeX` and resource-heavy packages, free Overleaf accounts very frequently hit compilation timeout and file limits. As your thesis grows, it is highly likely it will stop compiling on the platform altogether. 
 * **Outdated Version:** The template hosted on Overleaf may be significantly outdated compared to this GitHub repository. This is because updating and managing templates on Overleaf often requires a paid Overleaf subscription. Therefore, all the latest bug fixes, font updates, and formatting tweaks are maintained and pushed exclusively here on GitHub.
 
-For a reliable and up-to-date workflow, it is strongly recommended to download or clone this repository and compile it locally using `latexmk` as described in the setup section.
+For a reliable and up-to-date workflow, it is strongly recommended to download or clone this repository and compile it locally using `latexmk` as described in [How to build](#how-to-build).
 
