@@ -1,17 +1,19 @@
+% Online sources: use @online with the url and the date you accessed it
+% (urldate, as YYYY-MM-DD). The APA style then prints the access date for you,
+% e.g. "Retrieved July 24, 2026, from https://www.example.com/advanced-biber".
+
 @online{WinNT,
-	author = {MultiMedia LLC},
-	title = {{MS Windows NT} Kernel Description},
-	year = 1999,
-	url = {http://web.archive.org/web/20080207010024/http://www.808multimedia.com/winnt/kernel.htm},
-	urldate = {2024-09-30}
+  author  = {MultiMedia LLC},
+  title   = {{MS Windows NT} Kernel Description},
+  year    = 1999,
+  url     = {http://web.archive.org/web/20080207010024/http://www.808multimedia.com/winnt/kernel.htm},
+  urldate = {2024-09-30}
 }
 
-% Option B: The native BibLaTeX way (highly recommended)
-% Biber will automatically format this (e.g., "visited on 07/24/2026")
 @online{example_online_native,
-	author       = {John Smith},
-	title        = {Advanced Bibliography Management},
-	year         = {2026},
-	url          = {https://www.example.com/advanced-biber},
-	urldate      = {2026-07-24}
+  author  = {John Smith},
+  title   = {Advanced Bibliography Management},
+  year    = {2026},
+  url     = {https://www.example.com/advanced-biber},
+  urldate = {2026-07-24}
 }

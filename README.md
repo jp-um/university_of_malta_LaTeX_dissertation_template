@@ -4,7 +4,7 @@ Before embarking on this journey, I suggest you read my [LaTeX](https://bitsilla
 
 # University of Malta &ndash; LaTeX Dissertation (or Thesis) Template
 
-Let us not waste any time, you have a project to write up! [Here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/master/dissertation_main.pdf) is a complete example (PDF format) of what this LaTeX template looks like.  Or quicker...
+Let us not waste any time, you have a project to write up! [Here](https://github.com/jp-um/university_of_malta_LaTeX_dissertation_template/blob/main/dissertation_main.pdf) is a complete example (PDF format) of what this LaTeX template looks like.  Or quicker...
 
 <img src="images/pg1.png" width="400"><img src="images/pg2.png" width="400">
 <img src="images/pg3.png" width="400"><img src="images/pg4.png" width="400">
@@ -116,6 +116,8 @@ By default the template uses one-sided printing settings as most submissions are
 By default the cover page follows the University of Malta's official dissertation cover layout (centred, Lato, full University logo).  It is built from the `\title`, `\tagline`, `\author`, `\supervisor`, `\cosupervisor`, `\faculty`, `\department`, `\submissionDate`, `\doctype` and `\degreeName` you fill in at the top of `dissertation_main.tex`; the tagline and co-supervisor are optional.  Use `\\` in `\title` to choose where the (centred) title breaks.
 
 If you prefer the template's original cover (red bar and crest), pass `oldcover` as an option to the document class, e.g. `\documentclass[oneside,oldcover]{um}`.
+
+<img src="images/pg1.png" width="300" alt="Official University of Malta cover (default)"> <img src="images/pg1_oldcover.png" width="300" alt="Original template cover (oldcover option)">
 
 ## How do I make continuous footnote numbers?
 
